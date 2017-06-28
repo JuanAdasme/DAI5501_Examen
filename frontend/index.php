@@ -11,8 +11,21 @@
         
     </head>
     <body>
-        <?php
-        
-        ?>
+        <div id="contenedor">
+            
+            <?php include_once __DIR__.'/header.php'; ?>
+            
+            <div id="contenido">
+                <div id="migas">
+                    <ul>
+                        <li>Inicio</li>
+                    </ul>
+                </div>
+                
+            </div>
+            
+            <?php include_once __DIR__.'/footer.php'; ?>
+            
+        </div>
     </body>
 </html>
