@@ -89,20 +89,22 @@ include_once __DIR__.'/../backend/controller/AtencionController.php';
                         <legend>Datos de la Atención</legend>
                         <div class="campoFormulario">
                             <select name="especialidad">
-                                <optgroup id="optEspecialidad">
-                                    <option value="">-- Especialidad --</option>
-                                </optgroup>
+                                <optgroup id="optEspecialidad" label="-- Especialidad --">
+                                    <option value="">Seleccione Especialidad</option>
+                                    <option value="Medicina General">Medicina General</option>
+                                    <option value="Fonoaudiologia">Fonoaudiología</option>
+                                    <option value="Kinesiologia">Kinesiología</option>
+                                    <option value="Traumatologia">Traumatología</option>
+                                    <option value="Nutricionista">Nutricionista</option>
                             </select>
                         </div>
                         <div class="campoFormulario">
                             <select name="medicoTratante" required >
-                                <optgroup id="optMedico">
-                                    <option value="">-- Médico Tratante --</option>
-                                </optgroup>
+                                <option value="">Seleccione Médico</option>
                             </select>
                         </div>
                         <div class="campoFormulario">
-                            <label for="rutMedico">Valor Consulta:</label>
+                            <label for="rutMedico">RUT Médico:</label>
                             <input type="text" name="rutMedico" readonly >
                         </div>
                         <div class="campoFormulario">

@@ -24,8 +24,34 @@ jQuery(document).ready(function() {
         }
     });
     
+    jQuery("select[name='especialidad']").change(function() {
+        if(jQuery(this).val() === '') {
+            return;
+        }
+        mostrarCargando();
+        limpiarMedico();
+        
+        var esp = jQuery("select[name='especialidad']").val();
+        jQuery.getJSON("../backend/info-medico.php",
+                        {especialidad:esp},
+                        function(medicos) {
+                            jQuery.each(medicos, function(i = 0, medico) {
+                                var opt = "<option value='"+medico.rut+"' >"+medico.nombre+" "+
+                                            medico.apellido_paterno+" "+medico.apellido_materno+"</option>";
+                                jQuery("select[name='medicoTratante']").append(opt);
+                                i++;
+                            });
+                        });
+                        
+        ocultarCargando();
+    });
     
-    
+    function limpiarMedico() {
+        jQuery("select[name='medicoTratante'] option").remove();
+        jQuery("select[name='medicoTratante']").append('<option value="">Seleccione Médico</option>');
+        jQuery("input[name='rutMedico']").empty();
+        jQuery("input[name='valorConsulta']").empty();
+    }
     
     function mostrarCargando() {
         jQuery("#cargando").css("visibility", "visible");
