@@ -12,11 +12,11 @@ class Medico implements JsonSerializable{
    return $this->rut;
  }
 
- function getNombre_Completo(){
+ function getNombre_completo(){
    return $this->nombre_completo;
  }
 
- function getFecha_Contratacion(){
+ function getFecha_contratacion(){
    return $this->fecha_contratacion;
  }
 
@@ -24,7 +24,7 @@ class Medico implements JsonSerializable{
    return $this->especialidad;
  }
 
- function getValor_Consulta(){
+ function getValor_consulta(){
    return $this->valor_consulta;
  }
 
@@ -32,11 +32,11 @@ class Medico implements JsonSerializable{
    $this->rut = $rut;
  }
 
- function setNombre_Completo($nombre_completo){
+ function setNombre_completo($nombre_completo){
    $this->nombre_completo = $nombre_completo;
  }
 
- function setFecha_Contratacion($fecha_contratacion){
+ function setFecha_contratacion($fecha_contratacion){
    $this->fecha_contratacion = $fecha_contratacion;
  }
 
@@ -44,8 +44,18 @@ class Medico implements JsonSerializable{
     $this->especialidad = $especialidad;
   }
 
-  function setValor_Consulta($valor_consulta){
+  function setValor_consulta($valor_consulta){
     $this->valor_consulta = $valor_consulta;
   }
+
+    public function jsonSerialize() {
+           $arr = array ($rut => $this->getRut(),
+                       'nombre_completo' => $this->getNombre_completo(),
+                        'fecha_contratacion' => $this->getFecha_contratacion(),
+                         'especialidad' => $this->getEspecialidad(),
+                         'valor_consulta' => $this->getValor_consulta());
+        return $arr;
+    }
+    
 
 }

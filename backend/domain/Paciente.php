@@ -14,11 +14,11 @@ class Paciente implements JsonSerializable{
     return $this->rut;
   }
 
-  function getNombre_Completo(){
-    return $this->nombre_completo;
+  function getNombre_completo() {
+      return $this->nombre_completo;
   }
 
-  function getFecha_Nacimiento(){
+    function getFecha_nacimiento(){
     return $this->fecha_nacimiento;
   }
 
@@ -38,11 +38,11 @@ class Paciente implements JsonSerializable{
     $this->id = $id;
   }
 
-  function setNombre_Completo($nombre_completo){
+  function setNombre_completo($nombre_completo){
     $this->nombre_completo = $nombre_completo;
   }
 
-  function setFecha_Nacimiento($fecha_nacimiento){
+  function setFecha_nacimiento($fecha_nacimiento){
     $this->fecha_nacimiento = $fecha_nacimiento;
   }
 
@@ -58,5 +58,14 @@ class Paciente implements JsonSerializable{
    $this->telefono = $telefono;
  }
 
+    public function jsonSerialize() {
+        $arra = array ($id => $this-> getId(),
+                       'nombre_completo' => $this->getNombre_completo(),
+                        'fecha_nacimiento' => $this->getFecha_nacimiento(),
+                         'sexo' => $this->getSexo(),
+                         'direccion' => $this->getDireccion(),
+                         'telefono' => $this->getTelefono());
+        return $arra;
+    }
 
 }
