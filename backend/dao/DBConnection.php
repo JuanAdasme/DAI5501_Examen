@@ -77,7 +77,7 @@
                'ATENCION_FECHA_HORA' DateTime DEFAULT NULL,
                'ATENCION_PACIENTE_RUT'INT(8) NOT NULL,
                'ATENCION_MEDICO_RUT' INT(8) NOT NULL,
-              'ATENCION_ESTADO' varchar(15) DEFAULT NULL,
+              'ATENCION_ESTADO' varchar(15) DEFAULT 'Agendada',
               PRIMARY KEY (ATENCION_ID)
               )ENGINE=InnoDB DEFAULT CHARSET=utf8");
 

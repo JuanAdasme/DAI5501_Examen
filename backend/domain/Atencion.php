@@ -38,7 +38,7 @@ class Atencion implements JsonSerializable{
  }
 
  function setPaciente_rut($paciente_rut){
-   $this->paciente_rut = $apciente_rut;
+   $this->paciente_rut = $paciente_rut;
  }
 
  function setMedico_rut($medico_rut){
@@ -50,11 +50,11 @@ class Atencion implements JsonSerializable{
  }
 
     public function jsonSerialize() {
-           $arrs = array ($id => $this-> getId(),
-                       'fecha_hora' => $this->getFecha_hora(),
-                        'paciente_rut' => $this->getPaciente_rut(),
-                         'medico_rut' => $this->getMedico_rut(),
-                         'estado' => $this->getEstado());
+           $arrs = array ('id' => $this->getId(),
+                            'fecha_hora' => $this->getFecha_hora(),
+                            'paciente_rut' => $this->getPaciente_rut(),
+                            'medico_rut' => $this->getMedico_rut(),
+                            'estado' => $this->getEstado());
         return $arrs;
     }
         

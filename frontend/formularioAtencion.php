@@ -1,10 +1,11 @@
 <?php
-session_start();
+//session_start();
 /*
 if(!isset($_SESSION['usuario'])) {
     header("location: index.php");
 }
  */
+include_once __DIR__.'/../backend/controller/AtencionController.php';
 ?>
 
 <!DOCTYPE html>
@@ -43,20 +44,20 @@ if(!isset($_SESSION['usuario'])) {
                         
                         <legend>Datos del Paciente</legend>
                         <div class="campoFormulario">
-                            <label for="rut">RUT:</label>
-                            <input type="text" name="rut" placeholder="RUT" required autofocus >
+                            <label for="rutPaciente">RUT:</label>
+                            <input type="text" name="rutPaciente" placeholder="RUT" required autofocus >
                         </div>
                         <div class="campoFormulario">
-                            <label for="nombre">Nombre:</label>
-                            <input type="text" name="nombre" placeholder="Nombre" required >
+                            <label for="nombrePaciente">Nombre:</label>
+                            <input type="text" name="nombrePaciente" placeholder="Nombre" required >
                         </div>
                         <div class="campoFormulario">
-                            <label for="apellidoPaterno">Apellido Paterno:</label>
-                            <input type="text" name="apellidoPaterno" placeholder="Apellido Paterno" required >
+                            <label for="apellidoPaternoPaciente">Apellido Paterno:</label>
+                            <input type="text" name="apellidoPaternoPaciente" placeholder="Apellido Paterno" required >
                         </div>
                         <div class="campoFormulario">
-                            <label for="apellidoMaterno">Apellido Materno:</label>
-                            <input type="text" name="apellidoMaterno" placeholder="Apellido Materno" required >
+                            <label for="apellidoMaternoPaciente">Apellido Materno:</label>
+                            <input type="text" name="apellidoMaternoPaciente" placeholder="Apellido Materno" required >
                         </div>
                         <div class="campoFormulario">
                             <label for="fechaNacimiento">Fecha de Nacimiento:</label>
@@ -94,11 +95,15 @@ if(!isset($_SESSION['usuario'])) {
                             </select>
                         </div>
                         <div class="campoFormulario">
-                            <select name="medicoTratante">
+                            <select name="medicoTratante" required >
                                 <optgroup id="optMedico">
                                     <option value="">-- Médico Tratante --</option>
                                 </optgroup>
                             </select>
+                        </div>
+                        <div class="campoFormulario">
+                            <label for="rutMedico">Valor Consulta:</label>
+                            <input type="text" name="rutMedico" readonly >
                         </div>
                         <div class="campoFormulario">
                             <label for="valorConsulta">Valor Consulta:</label>

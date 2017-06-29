@@ -1,5 +1,4 @@
 jQuery(document).ready(function() {
-    
     ocultarCargando();
     
     jQuery.ajaxSetup({
@@ -11,8 +10,8 @@ jQuery(document).ready(function() {
     
     
     //Validar RUT
-    jQuery("input[name='rut']").Rut({format_on:'blur'});
-    jQuery("input[name='rut']").blur(function() {
+    jQuery("input[name='rutPaciente']").Rut({format_on:'blur'});
+    jQuery("input[name='rutPaciente']").blur(function() {
         if(!this.value !== "") {
             var rut = this.value;
             if(!jQuery.Rut.validar(rut)) {
