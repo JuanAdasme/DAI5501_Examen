@@ -48,18 +48,23 @@
             $mysqlConexion->exec("
             CREATE TABLE IF NOT EXISTS 'paciente'(
               'PACIENTE_RUT' int(8) NOT NULL,
-              'PACIENTE_NOMBRE_COMPLETO' varchar(50) DEFAULT NULL,
+              'PACIENTE_NOMBRE' varchar(50) DEFAULT NOT NULL,
+              'PACIENTE_APELLIDO_PATERNO' varchar(50) DEFAULT NULL,
+              'PACIENTE_APELLIDO_MATERNO' varchar(50) DEFAULT NULL,
               'PACIENTE_FECHA_NACIMIENTO' DATE DEFAULT NULL,
               'PACIENTE_SEXO' varchar(20) DEFAULT NULL,
               'PACIENTE_DIRECCION' varchar(25) DEFAULT NULL,
               'PACIENTE_TELEFONO' int(9) DEFAULT NULL,
-              PRIMARY KEY (PACIENTE_RUT)
+              'PACIENTE_TELEFONO_2' int(9) DEFAULT NULL,
+              PRIMARY KEY ('PACIENTE_RUT')
               )ENGINE=InnoDB DEFAULT CHARSET=utf8");
 
             $mysqlConexion->exec("
             CREATE TABLE IF NO EXISTS 'medico'(
               'MEDICO_RUT' int(8) NOT NULL,
-              'MEDICO_NOMBRE_COMPLETO' varchar(50) DEFAULT NULL,
+              'MEDICO_NOMBRE' varchar(50) DEFAULT NOT NULL,
+              'MEDICO_APELLIDO_PATERNO' varchar(50) DEFAULT NULL,
+              'MEDICO_APELLIDO_MATERNO' varchar(50) DEFAULT NULL,
               'MEDICO_FECHA_CONTRATACION' DATE DEFAULT NULL,
               'MEDICO_ESPECIALIDAD' varchar(25) DEFAULT NULL,
               'MEDICO_VALOR_CONSULTA' int(7) DEFAULT NULL,
@@ -68,11 +73,11 @@
 
             $mysqlConexion->exec("
             CREATE TABLE IF NOT EXISTS 'atencion'(
-               'ATENCION_ID' int(6) NOT NULL,
+               'ATENCION_ID' int(6) NOT NULL AUTO_INCREMENT,
                'ATENCION_FECHA_HORA' DateTime DEFAULT NULL,
                'ATENCION_PACIENTE_RUT' int(8) NOT NULL,
                'ATENCION_MEDICO_RUT' INT(8) NOT NULL,
-              'ATENCION_ESTADO' BOOLEAN,
+              'ATENCION_ESTADO' varchar(10) DEFAULT NULL,
               PRIMARY KEY (ATENCION_ID)
               )ENGINE=InnoDB DEFAULT CHARSET=utf8");
 
@@ -81,29 +86,29 @@
             ADD CONSTRAINT 'atencion_paciente_fk' FOREIGN KEY ('ATENCION_PACIENTE_RUT') REFERENCES 'paciente' ('PACIENTE_RUT') ON UPDATE CASCADE");
 
             $mysqlConexion->exec("
-            ALETER TABLE 'atencion'
-            ADD CONSTRAIT 'atencion_medico_fk' FOREIGN KEY ('ATENCION_MEDICO_RUT') REFERENCES 'medico' ('MEDICO_RUT') ON UPDATE CASCADE ");
+            ALTER TABLE 'atencion'
+            ADD CONSTRAINT 'atencion_medico_fk' FOREIGN KEY ('ATENCION_MEDICO_RUT') REFERENCES 'medico' ('MEDICO_RUT') ON UPDATE CASCADE ");
 
             $mysqlConexion->exec("
-            INSERT INTO 'paciente' ('PACIENTE_RUT','PACIENTE_NOMBRE_COMPLETO','PACIENTE_FECHA_NACIMIENTO','PACIENTE_SEXO','PACIENTE_DIRECCION','PACIENTE_TELEFONO') VALUES
-            (11111111,'Pedro Pablo Valenzuela Reyes','1991-09-12','Masculino','Los Laureles 6969',67483929),
-            (16276515, 'Maria Jose Valdivia Libano', '1987-12-02', 'Femenino','Huerfanos 670', 74652734),
-            (6154337,'Raul Andres Alvarez Jimenez','1950-12-16', 'Masculino', 'Republica 768',75894037),
-            (21321321, 'Marcela Andrea Infante Perez','2013-01-14', 'Femenino','Italia 6574', 75649302)");
+            INSERT INTO 'paciente' ('PACIENTE_RUT','PACIENTE_NOMBRE','PACIENTE_APELLIDO_PATERNO','PACIENTE_APELLIDO_MATERNO','PACIENTE_FECHA_NACIMIENTO','PACIENTE_SEXO','PACIENTE_DIRECCION','PACIENTE_TELEFONO') VALUES
+            (11111111,'Pedro Pablo','Valenzuela','Reyes','1991-09-12','Masculino','Los Laureles 6969',67483929),
+            (16276515,'Maria Jose','Valdivia','Libano','1987-12-02', 'Femenino','Huerfanos 670', 74652734),
+            (6154337,'Raul Andres','Alvarez','Jimenez','1950-12-16', 'Masculino', 'Republica 768',75894037),
+            (21321321,'Marcela Andrea','Infante','Perez','2013-01-14', 'Femenino','Italia 6574', 75649302)");
 
             $mysqlConexion->exec("
             INSERT INTO  'medico' ('MEDICO_RUT','MEDICO_NOMBRE_COMPLETO', 'MEDICO_FECHA_CONTRATACION','MEDICO_ESPECIALIDAD', 'MEDICO_VALOR_CONSULTA') VALUES
-            (12345678,'Natalia Javiera Alvarez Mandel','2014-08-03','Nutricionista', 15000),
-            (1123321,'Rafael Martinez Bunster','2010-07-01','Traumatologo',25000),
-            (15678345,'Andres Antonio Quiroga Gonzalez','2010-08-09','Medicina General',20000),
-            (17897456,'Macarena Alejandra Alvarado Soto','2012-08-09','Fonoaudiologa', '15000'),
-            (17345676,'Valentin Catalan Henriquez','2010-07-12','Kinesiologo', 15000)");
+            (12345678,'Natalia Javiera','Alvarez','Mandel','2014-08-03','Nutricionista', 15000),
+            (10123321,'Rafael','Martinez','Bunster','2010-07-01','Traumatologo',25000),
+            (15678345,'Andres Antonio','Quiroga','Gonzalez','2010-08-09','Medicina General',20000),
+            (17897456,'Macarena Alejandra','Alvarado','Soto','2012-08-09','Fonoaudiologa', '15000'),
+            (17345676,'Valentin','Catalan','Henriquez','2010-07-12','Kinesiologo', 15000)");
 
             $mysqlConexion->exec("
-            INSERT INTO 'atencion' ('ATENCION_ID','ATENCION_FECHA_HORA','ATENCION_PACIENTE_RUT','ATENCION_MEDICO_RUT','ATENCION_ESTADO') VALUES
-            (1,'2017-06-27 13:00',16276515 ,12345678,'Realizada'),
-            (2,'2017-06-03 14:30',16276515,17897456, 'Anulada'),
-            (3, '2017-06-12 11:30',21321321, 12345678, 'Agendada' )");
+            INSERT INTO 'atencion' ('ATENCION_FECHA_HORA','ATENCION_PACIENTE_RUT','ATENCION_MEDICO_RUT','ATENCION_ESTADO') VALUES
+            ('2017-06-27 13:00',16276515,12345678,'Realizada'),
+            ('2017-06-03 14:30',16276515,17897456,'Anulada'),
+            ('2017-06-12 11:30',21321321,12345678,'Agendada')");
 
 
 
