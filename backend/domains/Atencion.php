@@ -48,4 +48,16 @@ class Atencion implements JsonSerializable{
  function setEstado($estado){
    $this->estado = $estado;
  }
+
+    public function jsonSerialize() {
+           $arrs = array ($id => $this-> getId(),
+                       'fecha_hora' => $this->getFecha_hora(),
+                        'paciente_rut' => $this->getPaciente_rut(),
+                         'medico_rut' => $this->getMedico_rut(),
+                         'estado' => $this->getEstado());
+        return $arrs;
+    }
+        
+    
+
 }
