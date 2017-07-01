@@ -53,7 +53,7 @@ class DBConnection {
               `PACIENTE_APELLIDO_MATERNO` varchar(50) DEFAULT NULL,
               `PACIENTE_FECHA_NACIMIENTO` DATE DEFAULT NULL,
               `PACIENTE_SEXO` varchar(20) DEFAULT NULL,
-              `PACIENTE_DIRECCION` varchar(25) DEFAULT NULL,
+              `PACIENTE_DIRECCION` varchar(100) DEFAULT NULL,
               `PACIENTE_TELEFONO` int(9) DEFAULT NULL,
               `PACIENTE_TELEFONO_2` int(9) DEFAULT NULL,
               PRIMARY KEY (`PACIENTE_RUT`)
@@ -89,12 +89,27 @@ class DBConnection {
             ALTER TABLE `atencion`
             ADD CONSTRAINT `atencion_medico_fk` FOREIGN KEY (`ATENCION_MEDICO_RUT`) REFERENCES `medico` (`MEDICO_RUT`) ON UPDATE CASCADE ");
 
+            $algo = 1;
+            
+            $dir1 = 'Los Laureles 6969';
+            $hash1 = password_hash($dir1, $algo);
+            
+            $dir2 = 'Huerfanos 670';
+            $hash2 = password_hash($dir2, $algo);
+            
+            $dir3 = 'Republica 768';
+            $hash3 = password_hash($dir3, $algo);
+            
+            $dir4 = 'Italia 6574';
+            $hash4 = password_hash($dir4, $algo);
+            
+            
             $mysqlConexion->exec("
             INSERT INTO `paciente` (`PACIENTE_RUT`,`PACIENTE_NOMBRE`,`PACIENTE_APELLIDO_PATERNO`,`PACIENTE_APELLIDO_MATERNO`,`PACIENTE_FECHA_NACIMIENTO`,`PACIENTE_SEXO`,`PACIENTE_DIRECCION`,`PACIENTE_TELEFONO`) VALUES
-            (11111111,'Pedro Pablo','Valenzuela','Reyes','1991-09-12','Masculino','Los Laureles 6969',67483929),
-            (16276515,'Maria Jose','Valdivia','Libano','1987-12-02', 'Femenino','Huerfanos 670', 74652734),
-            (6154337,'Raul Andres','Alvarez','Jimenez','1950-12-16', 'Masculino', 'Republica 768',75894037),
-            (21321321,'Marcela Andrea','Infante','Perez','2013-01-14', 'Femenino','Italia 6574', 75649302)");
+            (11111111,'Pedro Pablo','Valenzuela','Reyes','1991-09-12','Masculino','$hash1',67483929),
+            (16276515,'Maria Jose','Valdivia','Libano','1987-12-02', 'Femenino','$hash2', 74652734),
+            (6154337,'Raul Andres','Alvarez','Jimenez','1950-12-16', 'Masculino','$hash3',75894037),
+            (21321321,'Marcela Andrea','Infante','Perez','2013-01-14', 'Femenino','$hash4', 75649302)");
 
             $mysqlConexion->exec("
             INSERT INTO  `medico` (`MEDICO_RUT`,`MEDICO_NOMBRE`,`MEDICO_APELLIDO_PATERNO`,`MEDICO_APELLIDO_MATERNO`, `MEDICO_FECHA_CONTRATACION`,`MEDICO_ESPECIALIDAD`, `MEDICO_VALOR_CONSULTA`) VALUES
@@ -110,10 +125,48 @@ class DBConnection {
             ('2017-06-03 14:30',16276515,17897456,'Anulada'),
             ('2017-06-12 11:30',21321321,12345678,'Agendada')");
 
-
-
-
-
+            $mysqlConexion->exec("
+            CREATE TABLE IF NOT EXISTS `usuario`(
+              `USUARIO_ID` int(8) NOT NULL DEFAULT '0',
+              `USUARIO_CLAVE` varchar(100) NOT NULL DEFAULT '',
+              `USUARIO_PERFIL` varchar(20) NOT NULL DEFAULT '',
+              `USUARIO_NOMBRE` varchar(50) DEFAULT NULL,
+              `USUARIO_FECHA_REGISTRO` DATE DEFAULT NULL,
+              PRIMARY KEY (`USUARIO_ID`)
+              )ENGINE=InnoDB DEFAULT CHARSET=utf8");
+            
+            $passDirector = "shield1945d1r3ct0r";
+            $dirHash = password_hash($passDirector, $algo);
+            
+            $passAdministrador = "admin2017";
+            $admHash = password_hash($passAdministrador, $algo);
+            
+            $passSecretario = "1234";
+            $secHash = password_hash($passSecretario, $algo);
+            
+            $passPaciente1 = "pac1";
+            $pac1Hash = password_hash($passPaciente1, $algo);
+            
+            $passPaciente2 = "pac2";
+            $pac2Hash = password_hash($passPaciente2, $algo);
+            
+            $passPaciente3 = "pac3";
+            $pac3Hash = password_hash($passPaciente3, $algo);
+            
+            $passPaciente4 = "pac4";
+            $pac4Hash = password_hash($passPaciente4, $algo);
+            
+            $mysqlConexion->exec("
+            INSERT INTO `usuario` (`USUARIO_ID`,`USUARIO_CLAVE`,`USUARIO_PERFIL`,`USUARIO_NOMBRE`,`USUARIO_FECHA_REGISTRO`) VALUES
+            (7774695,'$dirHash','Director','Nick Fury','2017-01-01'),
+            (8082710,'$admHash','Administrador','Osvaldo Karambio','2017-03-15'),
+            (17586681,'$secHash','Secretario','Cristoph Krumbach','2017-03-15'),
+            (11111111,'$pac1Hash','Paciente','Pedro Valenzuela','2017-06-21'),
+            (16276515,'$pac2Hash','Paciente','María José Valdivia','2017-06-01'),
+            (6154337,'$pac3Hash','Paciente','Raúl Álvarez','2017-06-01'),
+            (21321321,'$pac4Hash','Paciente','Marcela Infante','2017-06-01')");
+            
+            
             return $mysqlConexion;
 
         }catch(Exception $e){
