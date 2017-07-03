@@ -21,4 +21,22 @@ class MedicoController {
         }
         return null;
     }
+    
+    public static function agregarMedico($rut, $nombre, $apellidoP, $apellidoM,
+                                            $fechaContrato, $especialidad, $valorConsulta) {
+        $medico = new Medico();
+        
+        $medico->setRut($rut);
+        $medico->setNombre($nombre);
+        $medico->setApellido_paterno($apellidoP);
+        $medico->setApellido_materno($apellidoM);
+        $medico->setFecha_contratacion($fechaContrato);
+        $medico->setEspecialidad($especialidad);
+        $medico->setValor_consulta($valorConsulta);
+        
+        $conexion = DBConnection::getConexion();
+        $medicoDao = new MedicoDao($conexion);
+        
+        return $medicoDao->agregarRegistro($medico);
+    }
 }

@@ -3,22 +3,33 @@
 class Paciente implements JsonSerializable{
 
   private $rut;
-  private $nombre_completo;
+  private $nombre;
+  private $apellido_paterno;
+  private $apellido_materno;
   private $fecha_nacimiento;
   private $sexo;
   private $direccion;
   private $telefono;
+  private $telefono_opcional;
 
 
   function getRut(){
     return $this->rut;
   }
 
-  function getNombre_completo() {
-      return $this->nombre_completo;
+  function getNombre() {
+      return $this->nombre;
   }
 
-    function getFecha_nacimiento(){
+  function getApellido_paterno() {
+      return $this->apellido_paterno;
+  }
+
+  function getApellido_materno() {
+      return $this->apellido_materno;
+  }
+  
+  function getFecha_nacimiento(){
     return $this->fecha_nacimiento;
   }
 
@@ -33,31 +44,48 @@ class Paciente implements JsonSerializable{
   function getTelefono(){
     return $this->telefono;
   }
-
-  function setId($id){
-    $this->id = $id;
+  
+  function getTelefono_opcional() {
+      return $this->telefono_opcional;
+  }
+  
+  function setRut($rut) {
+      $this->rut = $rut;
   }
 
-  function setNombre_completo($nombre_completo){
-    $this->nombre_completo = $nombre_completo;
+  function setNombre($nombre) {
+      $this->nombre = $nombre;
   }
 
-  function setFecha_nacimiento($fecha_nacimiento){
-    $this->fecha_nacimiento = $fecha_nacimiento;
+  function setApellido_paterno($apellido_paterno) {
+      $this->apellido_paterno = $apellido_paterno;
   }
 
-  function setSexo($sexo){
-    $this->sexo = $sexo;
+  function setApellido_materno($apellido_materno) {
+      $this->apellido_materno = $apellido_materno;
   }
 
-  function setDireccion($direccion){
-    $this->direccion = $direccion;
+  function setFecha_nacimiento($fecha_nacimiento) {
+      $this->fecha_nacimiento = $fecha_nacimiento;
   }
 
- function setTelefon($telefono){
-   $this->telefono = $telefono;
- }
+  function setSexo($sexo) {
+      $this->sexo = $sexo;
+  }
 
+  function setDireccion($direccion) {
+      $this->direccion = $direccion;
+  }
+
+  function setTelefono($telefono) {
+      $this->telefono = $telefono;
+  }
+
+  function setTelefono_opcional($telefono_opcional) {
+      $this->telefono_opcional = $telefono_opcional;
+  }
+
+  
     public function jsonSerialize() {
         $arra = array ($id => $this-> getId(),
                        'nombre_completo' => $this->getNombre_completo(),

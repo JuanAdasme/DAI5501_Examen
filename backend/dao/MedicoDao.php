@@ -31,4 +31,30 @@ class MedicoDao {
         
         return $medicos;
     }
+    
+    public function agregarRegistro($registro) {
+        /* @var $registro Medico */
+        
+        $query = "INSERT INTO medico VALUES (:rut, :nombre, :apellidoP, :apellidoM, :fechaContrato, :especialidad, :valor);";
+        
+        $sentencia = $this->conexion->prepare($query);
+        
+        $rut = $registro->getRut();
+        $nom = $registro->getNombre();
+        $apePat = $registro->getApellido_paterno();
+        $apeMat = $registro->getApellido_materno();
+        $fecha = $registro->getFecha_contratacion();
+        $espec = $registro->getEspecialidad();
+        $valor = $registro->getValor_consulta();
+        
+        $sentencia->bind_param(':rut', $rut);
+        $sentencia->bind_param(':nombre', $nom);
+        $sentencia->bind_param(':apellidoP', $apePat);
+        $sentencia->bind_param(':apellidoM', $apeMat);
+        $sentencia->bind_param(':fechaContrato', $fecha);
+        $sentencia->bind_param(':especialidad', $espec);
+        $sentencia->bind_param(':valor', $valor);
+        
+        return $sentencia->execute();
+    }
 }
