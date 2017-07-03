@@ -12,9 +12,11 @@ jQuery(document).ready(function() {
     //Validar RUT
     jQuery("input[name='rutPaciente']").Rut({format_on:'blur'});
     jQuery("input[name='rutPaciente']").blur(function() {
+        mostrarCargando();
         if(!this.value !== "") {
             var rut = this.value;
             if(!jQuery.Rut.validar(rut)) {
+                ocultarCargando();
                 jQuery(this).addClass("error");
                 alert("RUT inválido");
             }
@@ -22,13 +24,14 @@ jQuery(document).ready(function() {
                 jQuery(this).removeClass("error");
             }
         }
+        ocultarCargando();
     });
     
     jQuery("select[name='especialidad']").change(function() {
+        mostrarCargando();
         if(jQuery(this).val() === '') {
             return;
         }
-        mostrarCargando();
         limpiarMedico();
         
         var esp = jQuery("select[name='especialidad']").val();

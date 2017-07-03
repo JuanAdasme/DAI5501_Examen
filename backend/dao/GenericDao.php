@@ -4,11 +4,11 @@ interface GenericDao{
 
   public function buscarPorId($id);
 
-  public function agregarRegistro($registros);
+  public function agregarRegistro($registro);
 
-  public function eliminarRegistro($registros);
+  public function eliminarRegistro($id);
 
-  public function listarTodos($registros);
+  public function listarTodos();
 
 
 }

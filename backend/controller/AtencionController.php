@@ -13,6 +13,7 @@ class AtencionController {
         $atencion->setFecha_hora($fecha);
         $atencion->setPaciente_rut($idPaciente);
         $atencion->setMedico_rut($idMedico);
+        $atencion->setEstado("Agendada");
         
         $conexion = DBConnection::getConexion();
         $atencionDao = new AtencionDao($conexion);
