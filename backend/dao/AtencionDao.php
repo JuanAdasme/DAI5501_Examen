@@ -1,8 +1,9 @@
 <?php
 
 include_once __DIR__.'/../domain/Atencion.php';
+include_once __DIR__.'/GenericDao.php';
 
-class AtencionDao  {
+class AtencionDao implements GenericDao {
     
     /*@var $conexion PDO */
     private $conexion;
@@ -54,11 +55,11 @@ class AtencionDao  {
         if($filas->rowCount() > 0) {
             foreach($filas as $fila) {
                 $atencion = new Atencion();
-                $atencion->setId($fila["atencion_id"]);
-                $atencion->setFecha_hora($fila["atencion_fecha_hora"]);
-                $atencion->setPaciente_rut($fila["atencion_paciente_rut"]);
-                $atencion->setMedico_rut($fila["atencion_paciente_rut"]);
-                $atencion->setEstado($fila["atencion_estado"]);
+                $atencion->setId($fila[0]);
+                $atencion->setFecha_hora($fila[1]);
+                $atencion->setPaciente_rut($fila[2]);
+                $atencion->setMedico_rut($fila[3]);
+                $atencion->setEstado($fila[4]);
                 
                 array_push($atenciones, $atencion);
             }
@@ -92,12 +93,30 @@ class AtencionDao  {
     
     public function eliminarRegistro($id) {
     }
+    
+    public function resumenAtenciones() {
+        $atenciones = array();
+        $query = "SELECT ate.atencion_id, ate.atencion_fecha_hora,
+                         pa.paciente_nombre, pa.paciente_apellido_paterno, pa.paciente_apellido_materno,
+                         me.medico_nombre, me.medico_apellido_paterno, me.medico_apellido_materno,
+                         ate.atencion_estado
+                    FROM atencion ate
+                        JOIN paciente pa ON (pa.paciente_rut = ate.atencion_paciente_rut)
+                        JOIN medico me ON (me.medico_rut = ate.atencion_medico_rut)";
+        
+        $sentencia = $this->conexion->prepare($query);
+        $sentencia->execute();
+        
+        foreach($sentencia as $fila) {
+            $atencion = array(
+                    'id' => $fila[0],
+                    'fechaHora' => $fila[1],
+                    'paciente'=> $fila[2].' '.$fila[3].' '.$fila[4],
+                    'medico' => $fila[5].' '.$fila[6].' '.$fila[7],
+                    'estado' => $fila[8]
+                    );
+                    array_push($atenciones, $atencion);
+        }
+        return $atenciones;
+    }
 }
-
-/*
- *             `ATENCION_ID` int(6) NOT NULL AUTO_INCREMENT,
-               `ATENCION_FECHA_HORA` DateTime DEFAULT NULL,
-               `ATENCION_PACIENTE_RUT`INT(8) NOT NULL,
-               `ATENCION_MEDICO_RUT` INT(8) NOT NULL,
-               `ATENCION_ESTADO` varchar(15) DEFAULT 'Agendada',
- */

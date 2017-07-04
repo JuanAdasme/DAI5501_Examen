@@ -1,8 +1,9 @@
 <?php
 
 include_once __DIR__.'/../domain/Medico.php';
+include_once __DIR__.'/GenericDao.php';
 
-class MedicoDao {
+class MedicoDao implements GenericDao {
     /*@var $conexion PDO */
     private $conexion;
     
@@ -105,5 +106,23 @@ class MedicoDao {
     public function eliminarRegistro($id) {
         $query = "DELETE FROM medico WHERE medico_rut = $id";
         return $this->conexion->query($query);
+    }
+    
+    public function resumenMedicos() {
+        $sentencia = $this->conexion->prepare("SELECT * FROM medico");
+        $sentencia->execute();
+        $lista = [];
+        
+        while($fila = $sentencia->fetch()) {
+            $medico = array(
+                'id' => $fila[0],
+                'nombre' => $fila[1].' '.$fila[2].' '.$fila[3],
+                'fechaContrato' => $fila[4],
+                'especialidad' => $fila[5],
+                'valor' => $fila[6]
+            );
+            array_push($lista, $medico);
+        }
+        return $lista;
     }
 }

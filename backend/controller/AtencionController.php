@@ -20,4 +20,11 @@ class AtencionController {
         
         return $atencionDao->agregarAtencion($atencion);
     }
+    
+    public static function listarAtenciones() {
+        $conexion = DBConnection::getConexion();
+        $dao = new AtencionDao($conexion);
+
+        return $dao->resumenAtenciones();
+    }
 }

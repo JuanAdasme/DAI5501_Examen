@@ -89,27 +89,25 @@ class DBConnection {
             ALTER TABLE `atencion`
             ADD CONSTRAINT `atencion_medico_fk` FOREIGN KEY (`ATENCION_MEDICO_RUT`) REFERENCES `medico` (`MEDICO_RUT`) ON UPDATE CASCADE ");
 
-            $algo = 1;
-            
             $dir1 = 'Los Laureles 6969';
-            $hash1 = password_hash($dir1, $algo);
+            $enc1 = base64_encode($dir1);
             
             $dir2 = 'Huerfanos 670';
-            $hash2 = password_hash($dir2, $algo);
+            $enc2 = base64_encode($dir2);
             
             $dir3 = 'Republica 768';
-            $hash3 = password_hash($dir3, $algo);
+            $enc3 = base64_encode($dir3);
             
             $dir4 = 'Italia 6574';
-            $hash4 = password_hash($dir4, $algo);
+            $enc4 = base64_encode($dir4);
             
             
             $mysqlConexion->exec("
             INSERT INTO `paciente` (`PACIENTE_RUT`,`PACIENTE_NOMBRE`,`PACIENTE_APELLIDO_PATERNO`,`PACIENTE_APELLIDO_MATERNO`,`PACIENTE_FECHA_NACIMIENTO`,`PACIENTE_SEXO`,`PACIENTE_DIRECCION`,`PACIENTE_TELEFONO`) VALUES
-            (11111111,'Pedro Pablo','Valenzuela','Reyes','1991-09-12','Masculino','$hash1',67483929),
-            (16276515,'Maria Jose','Valdivia','Libano','1987-12-02', 'Femenino','$hash2', 74652734),
-            (6154337,'Raul Andres','Alvarez','Jimenez','1950-12-16', 'Masculino','$hash3',75894037),
-            (21321321,'Marcela Andrea','Infante','Perez','2013-01-14', 'Femenino','$hash4', 75649302)");
+            (11111111,'Pedro Pablo','Valenzuela','Reyes','1991-09-12','Masculino','$enc1',67483929),
+            (16276515,'Maria Jose','Valdivia','Libano','1987-12-02', 'Femenino','$enc2', 74652734),
+            (6154337,'Raul Andres','Alvarez','Jimenez','1950-12-16', 'Masculino','$enc3',75894037),
+            (21321321,'Marcela Andrea','Infante','Perez','2013-01-14', 'Femenino','$enc4', 75649302)");
 
             $mysqlConexion->exec("
             INSERT INTO  `medico` (`MEDICO_RUT`,`MEDICO_NOMBRE`,`MEDICO_APELLIDO_PATERNO`,`MEDICO_APELLIDO_MATERNO`, `MEDICO_FECHA_CONTRATACION`,`MEDICO_ESPECIALIDAD`, `MEDICO_VALOR_CONSULTA`) VALUES
@@ -134,6 +132,8 @@ class DBConnection {
               `USUARIO_FECHA_REGISTRO` DATE DEFAULT NULL,
               PRIMARY KEY (`USUARIO_ID`)
               )ENGINE=InnoDB DEFAULT CHARSET=utf8");
+            
+            $algo = 1;
             
             $passDirector = "shield1945d1r3ct0r";
             $dirHash = password_hash($passDirector, $algo);

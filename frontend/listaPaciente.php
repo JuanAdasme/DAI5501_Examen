@@ -1,14 +1,21 @@
+<?php
 
+include_once __DIR__.'/../backend/controller/PacienteController.php';
+$lista = PacienteController::listarPacientes();
+
+?>
 <!DOCTYPE html>
 <html>
   <head>
     <meta charset="UTF-8"/>
-    <meta name="viewport", content="width=device-width; initial-scale=1.0;">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lista de Pacientes</title>
-    <link rel="stylesheet" type="text/css" href="css/boton.css"  media="all">
+    <!--<link rel="stylesheet" type="text/css" href="css/boton.css"  media="all">-->
     <link rel="stylesheet" type="text/css" href="css/estilo.css"  media="all">
     <script src="https://code.jquery.com/jquery-3.2.0.min.js" ></script>
-    <script src="javascript/redireccionar.js"></script>
+    <script src="js/jquery.Rut.js"></script>
+    <script type="text/javascript" src="js/listaPaciente.js"></script>
+    <<!--<script src="javascript/redireccionar.js"></script>-->
   </head>
   <body>
     <div id="contenido">
@@ -19,7 +26,7 @@
           <h1>Hospital Comunal Tetengo</h1>
         </div>
         <div id="logo-empresa">
-          <img alt="logo empresa" src="../dr.png"/>
+          <img alt="logo empresa" src="img/dr.png"/>
           
         </div>
       </header>
@@ -40,11 +47,23 @@
            </tr>
          </thead>
          <tbody>
-           <th></th>
-           <th></th>
-           <th></th>
-           <th></th> 
-           <th></th>
+             <?php
+             foreach($lista as $pac) {
+                 ?>
+                 <script>var rut = ""+formatear(<?=$pac['id']?>);</script>
+                 <?php
+             ?>
+             <tr>
+                 <td><script>document.write(rut)</script></td>
+                 <td><?= $pac['nombre'] ?></td>
+                 <td><?= $pac['fechaNacimiento'] ?></td>
+                 <td><?= $pac['sexo'] ?></td>
+                 <td><?= $pac['direccion'] ?></td>
+                 <td><?= $pac['telefono'] ?></td>
+             </tr>
+             <?php
+             }
+             ?>
          </tbody>
 
           </div>      

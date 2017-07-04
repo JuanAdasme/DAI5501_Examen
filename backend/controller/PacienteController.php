@@ -18,12 +18,23 @@ class PacienteController{
         $paciente->setApellido_materno($apellidoM);
         $paciente->setFecha_nacimiento($fechaNac);
         $paciente->setSexo($genero);
-        $hash = password_hash($direccion, PASSWORD_BCRYPT);
-        $paciente->setDireccion($hash);
+        $enc = base64_encode($direccion);
+        $paciente->setDireccion($enc);
         $paciente->setTelefono($tel1);
         $paciente->setTelefono_opcional($tel2);
         
         return $dao->agregarRegistro($paciente);
     }
-
+    
+    public static function listarPacientes() {
+        $conexion = DBConnection::getConexion();
+        $dao = new PacienteDao($conexion);
+        
+        $lista = $dao->resumenPacientes();
+        /*
+        foreach($lista as $reg) {
+            $reg['direccion'] = base64_decode($reg['direccion']);
+        }*/
+        return $lista;
+    }
 }

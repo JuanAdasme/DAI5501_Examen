@@ -2,8 +2,9 @@
 
 include_once __DIR__.'/../domain/Paciente.php';
 include_once __DIR__.'/../domain/Atencion.php';
+include_once __DIR__.'/GenericDao.php';
 
-class PacienteDao  {
+class PacienteDao implements GenericDao {
     
     /* @var $conexion PDO */
     private $conexion;
@@ -112,5 +113,24 @@ class PacienteDao  {
     public function eliminarRegistro($id) {
         $query = "DELETE FROM paciente WHERE paciente_rut = $id";
         return $this->conexion->query($query);
+    }
+    
+    public function resumenPacientes() {
+        $sentencia = $this->conexion->prepare("SELECT * FROM paciente");
+        $sentencia->execute();
+        $lista = [];
+        
+        foreach($sentencia as $fila) {
+            $paciente = array(
+                'id' => $fila[0],
+                'nombre' => $fila[1].' '.$fila[2].' '.$fila[3],
+                'fechaNacimiento' => $fila[4],
+                'sexo' => $fila[5],
+                'direccion' => base64_decode($fila[6]),
+                'telefono' => $fila[7]
+            );
+            array_push($lista, $paciente);
+        }
+        return $lista;
     }
 }

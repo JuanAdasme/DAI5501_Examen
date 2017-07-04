@@ -39,4 +39,11 @@ class MedicoController {
         
         return $medicoDao->agregarRegistro($medico);
     }
+    
+    public static function listarMedicos() {
+        $conexion = DBConnection::getConexion();
+        $dao = new MedicoDao($conexion);
+        
+        return $dao->resumenMedicos();
+    }
 }
