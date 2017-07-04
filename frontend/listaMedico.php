@@ -19,15 +19,15 @@ $listaMedicos = MedicoController::listarMedicos();
   </head>
   <body>
     <div id="contenido">
-   
+
       <header>
-        <form action="Login.html" method="post">
+        <form action="" method="post">
         <div id="titulo">
           <h1>Hospital Comunal Tetengo</h1>
         </div>
         <div id="logo-empresa">
           <img alt="logo empresa" src="img/dr.png"  />
-          
+
         </div>
       </header>
         <div id="vista">
@@ -71,8 +71,8 @@ $listaMedicos = MedicoController::listarMedicos();
           <input type="button" name="salir" value="Eliminar" />
           </div>
 
-     </fieldset>       
-      
+     </fieldset>
+
       </div>
     </form>
       <footer>

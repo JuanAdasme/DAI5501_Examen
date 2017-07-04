@@ -11,15 +11,15 @@
   </head>
   <body>
     <div id="contenido">
-   
+
       <header>
-        <form action="Login.html" method="post">
+        <form action="" method="post">
         <div id="titulo">
           <h1>Hospital Comunal Tetengo</h1>
         </div>
         <div id="logo-empresa">
           <img alt="logo empresa" src="dr.png"  />
-          
+
         </div>
       </header>
         <div id="vista">
@@ -32,11 +32,11 @@
        <li><a href="">Pacientes</a></li>
        <li><a href="">Atencion</a></li>
       <li><a href="#">Estadisticas</a></li>
-</ul> 
+</ul>
 </div>
 
-     </fieldset>       
-      
+     </fieldset>
+
       </div>
     </form>
       <footer>

@@ -12,15 +12,15 @@
   </head>
   <body>
     <div id="contenido">
-   
+
       <header>
-        <form action="Login.html" method="post">
+        <form action="" method="post">
         <div id="titulo">
           <h1>Hospital Comunal Tetengo</h1>
         </div>
         <div id="logo-empresa">
           <img alt="logo empresa" src="../dr.png"/>
-          
+
         </div>
       </header>
         <div id="vista">
@@ -29,7 +29,7 @@
        Filtro<input type="text" name="buscador"><br><br>
         <div class="tabla">
        <table border="3px">
-         
+
          <thead>
            <tr>
              <th>Id</th>
@@ -39,12 +39,12 @@
              <th>Fecha Registro</th>
            </tr>
          </thead>
-         
+
          <tbody>
            <th></th>
            <th></th>
            <th></th>
-           <th></th> 
+           <th></th>
            <th></th>
          </tbody>
        </table>
@@ -56,8 +56,8 @@
           </div>
 
 
-     </fieldset>       
-      
+     </fieldset>
+
       </div>
     </form>
       <footer>

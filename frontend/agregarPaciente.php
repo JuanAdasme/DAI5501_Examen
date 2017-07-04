@@ -11,23 +11,23 @@
   </head>
   <body>
     <div id="contenido">
-   
+
       <header>
-        <form action="Login.html" method="post">
+        <form action="" method="post">
         <div id="titulo">
           <h1>Hospital Comunal Tetengo</h1>
         </div>
         <div id="logo-empresa">
           <img alt="logo empresa" src="../dr.png"/>
-          
+
         </div>
       </header>
         <div id="vista">
 
-             
-                  <a href="<%= index_administrador_path %>">Volver</a>
-                  
-       
+
+                  <a href="">Volver</a>
+
+
 
           <form id="formAgendar" action="#" method="GET">
 
@@ -65,8 +65,8 @@
                       <input type="date" name="fechaAtencion" required  style="height: 10px; width: 200px;">
                   </div>
                   </div><br>
-                  
-                       
+
+
                       <div id="tabla">
                       <input type="submit" name="btnAgendar" value="Agendar" >
                       <input type="submit" name="btnReset" value="Reestablecer" >
@@ -83,6 +83,3 @@
     </div>
   </body>
 </html>
-
-
-

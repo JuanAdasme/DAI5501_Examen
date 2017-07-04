@@ -13,7 +13,7 @@
         <div id="contenido">
 
             <header>
-                <form action="Login.html" method="post">
+                <form action="" method="post">
                     <div id="titulo">
                         <h1>Hospital Comunal Tetengo</h1>
                     </div>
@@ -25,7 +25,7 @@
             <div id="vista">
 
 
-                <a href="<%= index_administrador_path %>">Volver</a>
+                <a href="">Volver</a>
 
 
 
@@ -97,6 +97,3 @@
 </div>
 </body>
 </html>
-
-
-
