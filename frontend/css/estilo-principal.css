@@ -1,0 +1,203 @@
+html,body {      
+   margin:0;     
+   padding:0;    
+   height:100%;  
+}
+
+#contenido {
+   min-height:100%;  
+   position:relative;
+   background: #8e9eab;  
+   background: -webkit-linear-gradient(to right, #eef2f3, #8e9eab);  
+   background: linear-gradient(to right, #eef2f3, #8e9eab); 
+
+}
+
+header, footer {
+   width: 100%;      
+   background: #808080;  
+   background: -webkit-linear-gradient(to right, #3fada8, #808080);  
+   background: linear-gradient(to right, #3fada8, #808080); 
+   color:black;             
+   text-align:center; 
+   padding:0px;     
+}
+header {
+    height:100px;
+}
+
+footer {
+   position:absolute; 
+   bottom:0;          
+   height:60px;       
+ }
+
+#titulo {
+    width: 70%;
+    margin-left: 10px;
+    text-align:center;
+    display:inline-block;
+    float:left;
+    padding: 0;
+    padding-bottom:15px;
+}
+
+#titulo h1 {
+    font-size: 1.6em;
+    margin-top: 20px;
+}
+
+#titulo h3 {
+  margin-top: -20px;
+  font-size: 1.4em;
+}
+
+#logo-empresa {
+    width: 30%;
+    margin-right: 10px;
+    text-align:right;
+    display:inline;
+}
+
+footer p {
+    max-height:60px;   
+    margin-left:auto;  
+    margin-right:auto; 
+    margin-bottom:0;   
+    margin-top:0;      
+}
+
+
+footer p:after { 
+        content:"Sitio optimizado para resolución entre 320px y 480px de ancho.";
+        color:white; 
+        text-align:center;
+        display:block;
+        width: 280px;
+        margin-left:auto;
+        margin-right:auto;
+        
+}
+
+#logo-empresa img {
+        content: url(../img/logo-320-480.png);
+        width:80px;
+        height:80px;
+        margin-top: 10px;
+}
+
+div.tabla{
+  text-align: center;
+}
+
+div.tabla table{
+  margin:0 auto;
+  text-align: left;
+}
+
+div.table input{
+   margin:0 auto;
+   text-align: left;
+
+}
+
+div.table .campoFormulario{
+  margin:0 auto;
+  text-align: justify-all;
+
+}
+
+
+input {
+    
+    height: 3px;
+    width: 10%;
+    margin: 2;
+    padding: 10px;
+    border: solid 1px black;
+    border-radius:9px;
+    font: inherit;
+    font-size: 1em;
+    box-sizing: content-box;
+    
+}
+
+
+#vista {
+  min-height:200px;
+  text-align:center;
+    
+
+}
+
+#vista, fieldset {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    margin: 0 auto;
+    margin-top:15px;
+    margin-bottom:15px;
+    padding-left:5%;
+    padding-right:5%;
+
+}
+
+fieldset {
+    text-align:center;
+}
+
+#vista input[type="text"]{
+  height: 10px;
+  width: 200px;
+}
+
+#vista input[type="button"] {
+    
+    height: 20px;
+    width: 120px;
+    background: #314755; 
+    background: -webkit-linear-gradient(to right, #26a0da, #314755);  
+    background: linear-gradient(to right, #26a0da, #314755); 
+}
+
+#vista input[type="button"]:hover {
+
+   background: #2193b0;  
+   background: -webkit-linear-gradient(to right, #6dd5ed, #2193b0);  
+   background: linear-gradient(to right, #6dd5ed, #2193b0); 
+
+    color: windowtext;
+}
+
+#vista input[type="submit"] {
+    
+   height: 20px;
+   width: 120px;
+   background: #314755; 
+   background: -webkit-linear-gradient(to right, #26a0da, #314755);  
+   background: linear-gradient(to right, #26a0da, #314755); 
+
+}
+
+#vista input[type="submit"]:hover {
+  
+  background: #2193b0;  
+  background: -webkit-linear-gradient(to right, #6dd5ed, #2193b0);  
+  background: linear-gradient(to right, #6dd5ed, #2193b0); 
+  color:dodgerblue;
+}
+
+#email, #clave {
+    width: 100%;
+    margin-top:10px;
+    margin-bottom:10px;
+}
+
+#vista label {
+    min-width: 80px;
+    display:block;
+}
+
+#vista input {
+    width: 90%;
+}
