@@ -13,7 +13,6 @@ $listaMedicos = MedicoController::listarMedicos();
         <script src="https://code.jquery.com/jquery-3.2.0.min.js" ></script>
         <script src="js/jquery.Rut.js"></script>
         <script type="text/javascript" src="js/listaMedico.js"></script>
-        <!--<script src="javascript/redireccionar.js"></script>-->
     </head>
     <body>
         <div id="contenido">

@@ -7,7 +7,6 @@
         <title>Agregar Usuario</title>
         <link rel="stylesheet" type="text/css" href="css/estilo.css"  media="all">
         <script src="https://code.jquery.com/jquery-3.2.0.min.js" ></script>
-        <script src="javascript/redireccionar.js"></script>
     </head>
     <body>
         <div id="contenido">

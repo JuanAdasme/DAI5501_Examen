@@ -13,7 +13,7 @@ $lista = PacienteController::listarPacientes();
         <script src="https://code.jquery.com/jquery-3.2.0.min.js" ></script>
         <script src="js/jquery.Rut.js"></script>
         <script type="text/javascript" src="js/listaPaciente.js"></script>
-        <<!--<script src="javascript/redireccionar.js"></script>-->
+        <script src="js/buscador.js"></script>
     </head>
     <body>
         <div id="contenido">
@@ -32,12 +32,12 @@ $lista = PacienteController::listarPacientes();
                         <legend><strong>PACIENTES</strong></legend>
                         Filtro<input type="text" id="buscador" placeholder="Ingrese paciente a buscar"><br><br>
                         <div class="tabla">
-                            <table border="3px">
+                            <table border="3px" id="tablaPaciente">
                                 <thead>
                                     <tr>
                                         <th>Rut</th>
                                         <th>Nombre Completo</th>
-                                        <th>Fecha de Nacimiento</th>
+                                        <th>Fecha de Naci miento</th>
                                         <th>Sexo</th>
                                         <th>Dirección</th>
                                         <th>Telefono</th>
@@ -79,21 +79,4 @@ $lista = PacienteController::listarPacientes();
             </footer>-->
         </div>
     </body>
-    <script>
-        jQuery("#buscador").keyup(function () {
-            if (jQuery(this).val() != "") {
-                jQuery("#tablaPaciente tbody>tr").hide();
-                jQuery("#tablaPaciente td:contiene-palabra('" + jQuery(this).val() + "')").parent("tr").show();
-            } else {
-                jQuery("#tablaPaciente tbody>tr").show();
-            }
-        });
-
-        jQuery.extend(jQuery.expr[":"],
-                {
-                    "contiene-palabra": function (elem, i, match, array) {
-                        return (elem.textContent || elem.innerText || jQuery(elem).text() || "").toLowerCase().indexOf((match[3] || "").toLowerCase()) >= 0;
-                    }
-                });
-    </script>
 </html>

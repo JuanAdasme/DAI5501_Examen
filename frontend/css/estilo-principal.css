@@ -169,17 +169,20 @@ fieldset {
     color: windowtext;
 }
 
-#vista input[type="submit"] {
+#vista input[type="submit"], input[type="reset"] {
     
    height: 20px;
-   width: 120px;
    background: #314755; 
    background: -webkit-linear-gradient(to right, #26a0da, #314755);  
    background: linear-gradient(to right, #26a0da, #314755); 
-
+   width: 120px;
 }
 
-#vista input[type="submit"]:hover {
+#vista input[type="reset"] {
+    width: 120px;
+}
+
+#vista input[type="submit"]:hover, input[type="reset"]:hover {
   
   background: #2193b0;  
   background: -webkit-linear-gradient(to right, #6dd5ed, #2193b0);  
@@ -200,4 +203,12 @@ fieldset {
 
 #vista input {
     width: 90%;
+}
+
+#menuhor ul, li {
+    display: inline;
+}
+
+#preFooter {
+    height: 3em;
 }
