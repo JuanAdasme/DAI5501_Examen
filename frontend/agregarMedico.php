@@ -3,11 +3,10 @@
 <html>
     <head>
         <meta charset="UTF-8"/>
-        <meta name="viewport", content="width=device-width; initial-scale=1.0;">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Agregar Medico</title>
         <link rel="stylesheet" type="text/css" href="css/estilo.css"  media="all">
         <script src="https://code.jquery.com/jquery-3.2.0.min.js" ></script>
-        <script src="javascript/redireccionar.js"></script>
     </head>
     <body>
         <div id="contenido">
@@ -66,7 +65,7 @@
 
                         <div id="tabla">
                             <input type="submit" name="btnAgendar" value="Agendar" >
-                            <input type="submit" name="btnReset" value="Reestablecer" >
+                            <input type="reset" name="btnReset" value="Reestablecer" >
                         </div>
                     </fieldset>
 
