@@ -8,12 +8,11 @@ $lista = PacienteController::listarPacientes();
         <meta charset="UTF-8"/>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Lista de Pacientes</title>
-        <!--<link rel="stylesheet" type="text/css" href="css/boton.css"  media="all">-->
         <link rel="stylesheet" type="text/css" href="css/estilo.css"  media="all">
         <script src="https://code.jquery.com/jquery-3.2.0.min.js" ></script>
         <script src="js/jquery.Rut.js"></script>
         <script type="text/javascript" src="js/listaPaciente.js"></script>
-        <script src="js/buscador.js"></script>
+        <script type="text/javascript" src="js/buscador.js"></script>
     </head>
     <body>
         <div id="contenido">
@@ -30,9 +29,9 @@ $lista = PacienteController::listarPacientes();
                 <form action="#" method="get">
                     <fieldset>
                         <legend><strong>PACIENTES</strong></legend>
-                        Filtro<input type="text" id="buscador" placeholder="Ingrese paciente a buscar"><br><br>
+                        Filtro<input type="text" class="buscador" placeholder="Ingrese paciente a buscar"><br><br>
                         <div class="tabla">
-                            <table border="3px" id="tablaPaciente">
+                            <table border="3px" class="tablaRegistros">
                                 <thead>
                                     <tr>
                                         <th>Rut</th>
@@ -44,11 +43,11 @@ $lista = PacienteController::listarPacientes();
                                     </tr>
                                 </thead>
                                 <tbody>
-                                <?php
-                                foreach ($lista as $pac) {
-                                ?>
+                                    <?php
+                                    foreach ($lista as $pac) {
+                                        ?>
                                     <script>var rut = "" + formatear(<?= $pac['id'] ?>);</script>
-                                        <?php ?>
+                                    <?php ?>
                                     <tr>
                                         <td><script>document.write(rut)</script></td>
                                         <td><?= $pac['nombre'] ?></td>
@@ -57,20 +56,21 @@ $lista = PacienteController::listarPacientes();
                                         <td><?= $pac['direccion'] ?></td>
                                         <td><?= $pac['telefono'] ?></td>
                                     </tr>
-                                <?php
+                                    <?php
                                 }
                                 ?>
                                 </tbody>
 
                             </table>
                         </div><br>
-
-                        <div id="tabla">
-                            <a href=""><input type="submit" name="entrar" value="Agregar" /></a>
-                            <input type="button" name="salir" value="Eliminar" />
-                        </div>
-
                     </fieldset>
+
+                    <div id="tabla">
+                        <a href=""><input type="submit" name="entrar" value="Agregar" /></a>
+                        <input type="button" name="salir" value="Eliminar" />
+                    </div>
+
+
                 </form>
             </div>
 

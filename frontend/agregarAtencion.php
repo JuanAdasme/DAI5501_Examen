@@ -11,23 +11,19 @@
     <body>
         <div id="contenido">
 
-            <header>
+            <!--<header>
                 <form action="" method="post">
                     <div id="titulo">
                         <h1>Hospital Comunal Tetengo</h1>
                     </div>
                     <div id="logo-empresa">
                         <img alt="logo empresa" src="../dr.png"  />
-
                     </div>
-            </header>
+            </header>-->
             <div id="vista">
 
-
                 <a href="">Volver</a>
-
-
-
+                
                 <form id="formAgendar" action="#" method="GET">
 
                     <fieldset>
@@ -64,35 +60,29 @@
                                     <option value="Perdida">Perdida</option>
                                     <option value="Realizada">Realizada</option>
                             </select>
-                            <div class="campoFormulario">
-                                <label for="fechaAtencion">Fecha de Atención:</label>
-                                <input type="date" name="fechaAtencion" required  style="height: 10px; width: 200px;">
-                            </div>
+                        </div>
+                        <div class="campoFormulario">
+                            <label for="fechaAtencion">Fecha de Atención:</label>
+                            <input type="date" name="fechaAtencion" required  style="height: 10px; width: 200px;">
+                        </div>
 
-                            <div class="campoFormulario">
-                                <label for="horaAtencion">Hora de Atención:</label>
-                                <input type="time" name="horaAtencion" value="08:00" step="600" required  style="height: 10px; width: 200px; ">
-                            </div><br>
+                        <div class="campoFormulario">
+                            <label for="horaAtencion">Hora de Atención:</label>
+                            <input type="time" name="horaAtencion" value="08:00" step="600" required  style="height: 10px; width: 200px; ">
+                        </div><br>
 
-                            <div id="tabla">
+                        <div id="tabla">
 
-                                <input type="submit" name="btnAgendar" value="Agendar" >
+                            <input type="submit" name="btnAgendar" value="Agendar" >
+                            <input type="reset" name="btnReset"  value="Reestablecer">
 
-
-                                <input type="submit" name="btnReset"  value="Reestablecer">
-
-                            </div>
-
+                        </div>
                     </fieldset>
-
-
                 </form>
             </div>
         </div>
-    </form>
-    <footer>
-        <p>Comuna de Tetengo</p>
-    </footer>
-</div>
-</body>
+        <!--<footer>
+            <p>Comuna de Tetengo</p>
+        </footer>-->
+    </body>
 </html>

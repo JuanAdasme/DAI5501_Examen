@@ -1,10 +1,10 @@
 jQuery(document).ready(function() {
-    jQuery("#buscador").keyup(function () {
+    jQuery(".buscador").keyup(function () {
             if (jQuery(this).val() != "") {
-                jQuery("#tablaPaciente tbody>tr").hide();
-                jQuery("#tablaPaciente td:contiene-palabra('" + jQuery(this).val() + "')").parent("tr").show();
+                jQuery(".tablaRegistros tbody>tr").hide();
+                jQuery(".tablaRegistros td:contiene-palabra('" + jQuery(this).val() + "')").parent("tr").show();
             } else {
-                jQuery("#tablaPaciente tbody>tr").show();
+                jQuery(".tablaRegistros tbody>tr").show();
             }
         });
         

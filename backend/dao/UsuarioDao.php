@@ -57,10 +57,30 @@ class UsuarioDao implements GenericDao {
     }
     
     public function listarTodos() {
+        $query = "SELECT usuario_id, usuario_perfil, usuario_nombre, usuario_fecha_registro FROM usuario";
+        $sentencia = $this->conexion->prepare($query);
+        $sentencia->execute();
+        $users = [];
+        
+        if($sentencia->rowCount() > 0) {
+            while($fila = $sentencia->fetch()) {
+                $us = array(
+                    'id' => $fila[0],
+                    'perfil' => $fila[1],
+                    'nombre' => $fila[2],
+                    'fechaRegistro' => $fila[3]
+                );
+                
+                array_push($users,$us);
+            }
+        }
+        
+        return $users;
     }
     
     public function eliminarRegistro($id) {
         $query = "DELETE FROM usuario WHERE usuario_id = $id";
         return $this->conexion->query($query);
     }
+    
 }

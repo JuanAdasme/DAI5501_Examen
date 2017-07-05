@@ -48,13 +48,13 @@ class MedicoDao implements GenericDao {
         $espec = $registro->getEspecialidad();
         $valor = $registro->getValor_consulta();
         
-        $sentencia->bind_param(':rut', $rut);
-        $sentencia->bind_param(':nombre', $nom);
-        $sentencia->bind_param(':apellidoP', $apePat);
-        $sentencia->bind_param(':apellidoM', $apeMat);
-        $sentencia->bind_param(':fechaContrato', $fecha);
-        $sentencia->bind_param(':especialidad', $espec);
-        $sentencia->bind_param(':valor', $valor);
+        $sentencia->bindParam(':rut', $rut);
+        $sentencia->bindParam(':nombre', $nom);
+        $sentencia->bindParam(':apellidoP', $apePat);
+        $sentencia->bindParam(':apellidoM', $apeMat);
+        $sentencia->bindParam(':fechaContrato', $fecha);
+        $sentencia->bindParam(':especialidad', $espec);
+        $sentencia->bindParam(':valor', $valor);
         
         return $sentencia->execute();
     }

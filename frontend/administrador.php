@@ -1,4 +1,15 @@
+<?php
+/*
+session_start();
 
+if(!isset($_SESSION['perfil'])) {
+    header('location: index.php');
+}
+if(!$_SESSION['perfil'] === 'Administrador') {
+    
+}
+*/
+?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -77,11 +88,11 @@
             </div>
             
             <div id="addUsuario" style="display:none" >
-                
+                <?php include_once __DIR__.'/agregarUsuario.php'; ?>
             </div>
             
             <div id="listUsuario" style="display:none" >
-                
+                <?php include_once __DIR__.'/listaUsuario.php'; ?>
             </div>
             
             <div id="delUsuario" style="display:none" >

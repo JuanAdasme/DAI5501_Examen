@@ -13,6 +13,7 @@ $listaMedicos = MedicoController::listarMedicos();
         <script src="https://code.jquery.com/jquery-3.2.0.min.js" ></script>
         <script src="js/jquery.Rut.js"></script>
         <script type="text/javascript" src="js/listaMedico.js"></script>
+        <script type="text/javascript" src="js/buscador.js"></script>
     </head>
     <body>
         <div id="contenido">
@@ -31,9 +32,9 @@ $listaMedicos = MedicoController::listarMedicos();
                 <form action="" method="post">
                     <fieldset>
                         <legend><strong>MEDICOS</strong></legend>
-                        Filtro<input type="text" id="buscador" placeholder="Ingrese medico a buscar"><br><br>
+                        Filtro<input type="text" class="buscador" placeholder="Ingrese medico a buscar"><br><br>
                         <div class="tabla">
-                            <table border="3px">
+                            <table border="3px" class="tablaRegistros">
                                 <thead>
                                     <tr>
                                         <th>Rut</th>
@@ -77,21 +78,4 @@ $listaMedicos = MedicoController::listarMedicos();
             </footer>-->
         </div>
     </body>
-    <script>
-        jQuery("#buscador").keyup(function () {
-            if (jQuery(this).val() != "") {
-                jQuery("#tablaPaciente tbody>tr").hide();
-                jQuery("#tablaPaciente td:contiene-palabra('" + jQuery(this).val() + "')").parent("tr").show();
-            } else {
-                jQuery("#tablaPaciente tbody>tr").show();
-            }
-        });
-
-        jQuery.extend(jQuery.expr[":"],
-                {
-                    "contiene-palabra": function (elem, i, match, array) {
-                        return (elem.textContent || elem.innerText || jQuery(elem).text() || "").toLowerCase().indexOf((match[3] || "").toLowerCase()) >= 0;
-                    }
-                });
-    </script>
 </html>

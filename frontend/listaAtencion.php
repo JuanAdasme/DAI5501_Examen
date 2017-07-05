@@ -39,8 +39,8 @@ $atenciones = AtencionController::listarAtenciones();
             <div id="vista">
                 <fieldset>
                     <legend>ATENCIONES</legend>
-                    Filtro<input type="text" id="buscador" placeholder="Ingrese atencion a buscar"><br><br>
-                    <div class="tabla">
+                    Filtro<input type="text" class="buscador" placeholder="Ingrese atencion a buscar"><br><br>
+                    <div class="tabla" class="tablaRegistros">
                         <table border="3px">
 
                             <thead>

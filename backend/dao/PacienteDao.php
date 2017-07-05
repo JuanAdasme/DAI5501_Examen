@@ -49,15 +49,15 @@ class PacienteDao implements GenericDao {
         $tel1 = $registro->getTelefono();
         $tel2 = $registro->getTelefono_opcional();
         
-        $sentencia->bind_param(':rut', $rut);
-        $sentencia->bind_param(':nombre', $nom);
-        $sentencia->bind_param(':apellidoP', $apePat);
-        $sentencia->bind_param(':apellidoM', $apeMat);
-        $sentencia->bind_param(':fechaNacimiento', $fecha);
-        $sentencia->bind_param(':genero', $gen);
-        $sentencia->bind_param(':direccion', $direc);
-        $sentencia->bind_param(':telefono1', $tel1);
-        $sentencia->bind_param(':telefono2', $tel2);
+        $sentencia->bindParam(':rut', $rut);
+        $sentencia->bindParam(':nombre', $nom);
+        $sentencia->bindParam(':apellidoP', $apePat);
+        $sentencia->bindParam(':apellidoM', $apeMat);
+        $sentencia->bindParam(':fechaNacimiento', $fecha);
+        $sentencia->bindParam(':genero', $gen);
+        $sentencia->bindParam(':direccion', $direc);
+        $sentencia->bindParam(':telefono1', $tel1);
+        $sentencia->bindParam(':telefono2', $tel2);
         
         return $sentencia->execute();
     }
