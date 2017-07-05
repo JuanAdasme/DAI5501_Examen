@@ -1,6 +1,19 @@
 
 <!DOCTYPE html>
 <html>
+<<<<<<< HEAD
+  <head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport", content="width=device-width; initial-scale=1.0;">
+    <title>Agregar Paciente</title>
+    <link rel="stylesheet" type="text/css" href="css/estilo.css"  media="all">
+    <script src="https://code.jquery.com/jquery-3.2.0.min.js" ></script>
+    <script src="javascript/redireccionar.js"></script>
+  
+  </head>
+  <body>
+    <div id="contenido">
+=======
     <head>
         <meta charset="UTF-8"/>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,6 +23,7 @@
     </head>
     <body>
         <div id="contenido">
+>>>>>>> 50836fa1085b96bf787bb222507ddd9ab596dc1e
 
             <!--<header>
               <div id="titulo">
