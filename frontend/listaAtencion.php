@@ -28,7 +28,7 @@ $atenciones = AtencionController::listarAtenciones();
         <div id="contenido">
 
             <header>
-                <form action="Login.html" method="post">
+                <form action="" method="post">
                     <div id="titulo">
                         <h1>Hospital Comunal Tetengo</h1>
                     </div>
@@ -40,7 +40,7 @@ $atenciones = AtencionController::listarAtenciones();
             <div id="vista">
                 <fieldset>
                     <legend>ATENCIONES</legend>
-                    Filtro<input type="text" name="buscador"><br><br>
+                    Filtro<input type="text" id="buscador" placeholder="Ingrese atencion a buscar"><br><br>
                     <div class="tabla">
                         <table border="3px">
 
@@ -77,7 +77,7 @@ $atenciones = AtencionController::listarAtenciones();
                         <input type="button" name="salir" value="Eliminar" />
                     </div>
 
-                </fieldset>       
+                </fieldset>
 
             </div>
         </form>
@@ -86,4 +86,22 @@ $atenciones = AtencionController::listarAtenciones();
         </footer>
     </div>
 </body>
+<script>
+jQuery("#buscador").keyup(function(){
+  if( jQuery(this).val() != ""){
+      jQuery("#tablaPaciente tbody>tr").hide();
+      jQuery("#tablaPaciente td:contiene-palabra('" + jQuery(this).val() + "')").parent("tr").show();
+  }
+  else{
+      jQuery("#tablaPaciente tbody>tr").show();
+  }
+});
+
+jQuery.extend(jQuery.expr[":"],
+{
+  "contiene-palabra": function(elem, i, match, array) {
+      return (elem.textContent || elem.innerText || jQuery(elem).text() || "").toLowerCase().indexOf((match[3] || "").toLowerCase()) >= 0;
+  }
+});
+</script>
 </html>

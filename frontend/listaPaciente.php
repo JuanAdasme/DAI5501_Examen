@@ -19,7 +19,7 @@ $lista = PacienteController::listarPacientes();
   </head>
   <body>
     <div id="contenido">
-   
+
       <header>
         <form action="#" method="get">
         <div id="titulo">
@@ -27,15 +27,15 @@ $lista = PacienteController::listarPacientes();
         </div>
         <div id="logo-empresa">
           <img alt="logo empresa" src="img/dr.png"/>
-          
+
         </div>
       </header>
         <div id="vista">
             <fieldset>
        <legend><strong>PACIENTES</strong></legend>
-       Filtro<input type="text" name="buscador"><br><br>
+       Filtro<input type="text" id="buscador" placeholder="Ingrese paciente a buscar"><br><br>
        <div class="tabla">
-         <table border="3px">     
+         <table border="3px">
          <thead>
            <tr>
              <th>Rut</th>
@@ -66,7 +66,7 @@ $lista = PacienteController::listarPacientes();
              ?>
          </tbody>
 
-          </div>      
+          </div>
        </table>
     </div><br>
 
@@ -75,8 +75,8 @@ $lista = PacienteController::listarPacientes();
           <input type="button" name="salir" value="Eliminar" />
           </div>
 
-     </fieldset>       
-      
+     </fieldset>
+
       </div>
     </form>
       <footer>
@@ -84,4 +84,22 @@ $lista = PacienteController::listarPacientes();
       </footer>
     </div>
   </body>
+  <script>
+  jQuery("#buscador").keyup(function(){
+    if( jQuery(this).val() != ""){
+        jQuery("#tablaPaciente tbody>tr").hide();
+        jQuery("#tablaPaciente td:contiene-palabra('" + jQuery(this).val() + "')").parent("tr").show();
+    }
+    else{
+        jQuery("#tablaPaciente tbody>tr").show();
+    }
+});
+
+jQuery.extend(jQuery.expr[":"],
+{
+    "contiene-palabra": function(elem, i, match, array) {
+        return (elem.textContent || elem.innerText || jQuery(elem).text() || "").toLowerCase().indexOf((match[3] || "").toLowerCase()) >= 0;
+    }
+});
+</script>
 </html>
