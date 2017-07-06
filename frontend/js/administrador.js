@@ -13,12 +13,6 @@ jQuery(document).ready(function() {
         jQuery('#addMedico').css('display','block');
     });
     
-    jQuery('#eliminarMed').click(function(event) {
-        limpiar();
-        event.preventDefault();
-        jQuery('#delMedico').css('display','block');
-    });
-    
     jQuery('#agregarPac').click(function(event) {
         limpiar();
         event.preventDefault();
@@ -29,12 +23,6 @@ jQuery(document).ready(function() {
         limpiar();
         event.preventDefault();
         jQuery('#listPaciente').css('display','block');
-    });
-    
-    jQuery('#eliminarPac').click(function(event) {
-        limpiar();
-        event.preventDefault();
-        jQuery('#delPaciente').css('display','block');
     });
     
     jQuery('#agregarUsu').click(function(event) {
@@ -49,11 +37,6 @@ jQuery(document).ready(function() {
         jQuery('#listUsuario').css('display','block');
     });
     
-    jQuery('#eliminarUsu').click(function(event) {
-        limpiar();
-        event.preventDefault();
-        jQuery('#delUsuario').css('display','block');
-    });
     
     function limpiar() {
         jQuery('#listMedico, #addMedico, #delMedico').css('display','none');

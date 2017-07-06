@@ -44,19 +44,16 @@ if(!$_SESSION['perfil'] === 'Administrador') {
                                 <ul>
                                     <li><a id="listarMed" href="">Listar</a></li>
                                     <li><a id="agregarMed" href="">Agregar</a></li>
-                                    <li><a id="eliminarMed" href="">Eliminar</a></li>
                                 </ul>
                                 <li><a id="paciente" href="">Pacientes</a></li>
                                 <ul>
                                     <li><a id="listarPac" href="">Listar</a></li>
                                     <li><a id="agregarPac" href="">Agregar</a></li>
-                                    <li><a id="eliminarPac" href="">Eliminar</a></li>
                                 </ul>
                                 <li><a id="usuario" href="">Usuario</a></li>
                                 <ul>
                                     <li><a id="listarUsu" href="">Listar</a></li>
                                     <li><a id="agregarUsu" href="">Agregar</a></li>
-                                    <li><a id="eliminarUsu" href="">Eliminar</a></li>
                                 </ul>
                             </ul>
                         </ul>
@@ -71,20 +68,12 @@ if(!$_SESSION['perfil'] === 'Administrador') {
                 <?php include_once __DIR__.'/listaMedico.php'; ?>
             </div>
             
-            <div id="delMedico" style="display:none">
-            </div>
-            
-            
             <div id="listPaciente" style="display:none">
                 <?php include_once __DIR__.'/listaPaciente.php'; ?>
             </div>
             
             <div id="addPaciente" style="display:none" >
                 <?php include_once __DIR__.'/agregarPaciente.php'; ?>
-            </div>
-            
-            <div id="delPaciente" style="display:none">
-                
             </div>
             
             <div id="addUsuario" style="display:none" >
@@ -95,9 +84,6 @@ if(!$_SESSION['perfil'] === 'Administrador') {
                 <?php include_once __DIR__.'/listaUsuario.php'; ?>
             </div>
             
-            <div id="delUsuario" style="display:none" >
-                
-            </div>
             
             <div id="preFooter"></div>
             <footer>

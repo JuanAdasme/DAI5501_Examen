@@ -33,10 +33,7 @@ class PacienteDao implements GenericDao {
     }
     
     public function agregarRegistro($registro) {
-        /* @var $registro Paciente */
-        
-        $query = "INSERT INTO paciente VALUES (:rut, :nombre, :apellidoP, :apellidoM, :fechaNacimiento, :genero, :direccion :telefono1, :telefono2);";
-        
+        $query = "INSERT INTO paciente VALUES (:rut, :nombre, :apellidoP, :apellidoM, :fechaNacimiento, :genero, :direccion, :telefono1, :telefono2);";
         $sentencia = $this->conexion->prepare($query);
         
         $rut = $registro->getRut();
@@ -57,6 +54,9 @@ class PacienteDao implements GenericDao {
         $sentencia->bindParam(':genero', $gen);
         $sentencia->bindParam(':direccion', $direc);
         $sentencia->bindParam(':telefono1', $tel1);
+        if($tel2 == null) {
+            $tel2 = 0;
+        }
         $sentencia->bindParam(':telefono2', $tel2);
         
         return $sentencia->execute();

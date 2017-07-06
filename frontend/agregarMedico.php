@@ -54,7 +54,7 @@ if($_SERVER['REQUEST_METHOD'] === 'GET') {
 
                     <fieldset>
                         <legend>Datos del Medico</legend>
-                        <div id="tabla">
+                        <div class="tabla">
                             
                             <div class="campoFormulario">
                                 <label for="nombreMedico">Nombre:</label>
