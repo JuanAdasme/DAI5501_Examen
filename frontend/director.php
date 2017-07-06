@@ -23,22 +23,46 @@
         </div>
       </header>
         <div id="vista">
-            <fieldset>
+            <fieldset style="border:6px groove #ccc; width: 250px; height: 60px;">
        <legend>Menu Principal Director</legend>
 
-       <div id="menuhor">
-       <ul id="boton">
-       <li><a href="">Medicos</a></li>
-       <li><a href="">Pacientes</a></li>
-       <li><a href="">Atencion</a></li>
-      <li><a href="#">Estadisticas</a></li>
-</ul>
-</div>
-
+       <ul class="mi-menu">
+        <li><a href="">Medicos</a>
+          <ul>
+              <li><a id="listarMed" href="">Listar</a></li>
+          </ul>
+        </li>
+        <li><a href="">Pacientes</a>
+          <ul>
+              <li><a id="listarPac" href="">Listar</a></li>
+          </ul>
+        </li>
+        <li><a href="">Atencion</a>
+          <ul>
+            <li><a id="listarAte" href="">Listar</a></li>
+          </ul>
+        </li>
+        <li><a href="#">Estadisticas</a>
+             <ul>
+               <li><a href=""></a>Consultar</li>
+             </ul>
+        </li>
+       </ul>
      </fieldset>
-
-      </div>
+</div>
     </form>
+    <div id="listMedico" style="display:none">
+        <?php include_once __DIR__.'/listaMedico.php'; ?>
+    </div>
+
+    <div id="listPaciente" style="display:none">
+        <?php include_once __DIR__.'/listaPaciente.php'; ?>
+    </div>
+
+    <div id="listAtencion" style="display:none">
+        <?php include_once __DIR__.'/listaAtencion.php'; ?>
+    </div>
+
       <footer>
         <p>Comuna de Tetengo</p>
       </footer>
