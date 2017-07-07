@@ -4,7 +4,8 @@
   <head>
     <meta charset="UTF-8"/>
     <meta name="viewport", content="width=device-width; initial-scale=1.0;">
-    <title>Secretaria</title>
+    <title>Login</title>
+    <link rel="stylesheet" type="text/css" href="css/boton.css"  media="all">
     <link rel="stylesheet" type="text/css" href="css/estilo.css"  media="all">
     <script src="https://code.jquery.com/jquery-3.2.0.min.js" ></script>
     <script src="javascript/redireccionar.js"></script>
@@ -18,37 +19,32 @@
           <h1>Hospital Comunal Tetengo</h1>
         </div>
         <div id="logo-empresa">
-          <img alt="logo empresa" src="../dr.png"/>
+    <img alt="logo empresa" src="dr.png"  />
 
         </div>
       </header>
         <div id="vista">
             <fieldset>
-       <legend>Menu Principal Secretaria</legend>
+       <legend>Estadisticas Atenciones</legend>
+       Filtro<input type="text" name="buscador"><br><br>
+        <div class="tabla">
+       <table border="3px">
 
-       <div id="menuhor">
-       <ul id="mi-menu">
-       <li><a href="">Medicos</a>
-         <ul>
-             <li><a id="listarMed" href="">Listar</a></li>
-         </ul></li>
-       <li><a href="">Pacientes</a>
-         <ul>
-             <li><a id="listarPac" href="">Listar</a></li>
-         </ul>
-       </li>
-       <li><a href="">Atenciones</a>
-         <ul>
-             <li><a id="listarAt" href="">Listar</a>
-               <ul>
-                   <li><a id="listarPac" href="">Listar</a></li>
-               </ul>
-             </li>
-         </ul></li>
+         <thead>
+           <tr>
+             <th>Rango Etario</th>
+             <th>Sexo</th>
+             <th>Cantidad de Atenciones Recibidas</th>
+           </tr>
+         </thead>
+         <tbody>
+           <td></td>
+           <td></td>
+           <td></td>
+         </tbody>
+       </table>
+       </div><br>
 
-
-       </ul>
-</div>
 
 
      </fieldset>

@@ -44,7 +44,11 @@
         </li>
         <li><a href="#">Estadisticas</a>
              <ul>
-               <li><a href=""></a>Consultar</li>
+               <li><a href="">Consultar Atencion</a>
+                 <ul>
+                   <li><a href="">Consultar Paciente</a>
+                 </ul>
+               </li>
              </ul>
         </li>
        </ul>

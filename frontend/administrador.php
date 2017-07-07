@@ -42,20 +42,30 @@ if(!$_SESSION['perfil'] === 'Administrador') {
 
                                 <li><a id="medico" href="">Medicos</a>
                                 <ul>
-                                    <li><a id="listarMed" href="">Listar</a></li>
-                                    <li><a id="agregarMed" href="">Agregar</a></li>
+                                    <li><a id="listarMed" href="">Listar</a>
+                                        <ul>
+                                          <li><a id="agregarMed" href="">Agregar</a></li>
+                                        </ul>
+                                    </li>
                                 </ul>
                                 </li>
                                 <li><a id="paciente" href="">Pacientes</a>
                                 <ul>
-                                    <li><a id="listarPac" href="">Listar</a></li>
-                                    <li><a id="agregarPac" href="">Agregar</a></li>
+                                    <li><a id="listarPac" href="">Listar</a>
+                                    <ul>
+                                      <li><a id="agregarPac" href="">Agregar</a></li>
+                                    </ul>
+                                  </li>
+
                                 </ul>
                                 </li>
                                 <li><a id="usuario" href="">Usuario</a>
                                 <ul>
-                                    <li><a id="listarUsu" href="">Listar</a></li>
-                                    <li><a id="agregarUsu" href="">Agregar</a></li>
+                                    <li><a id="listarUsu" href="">Listar</a>
+                                    <ul>
+                                      <li><a id="agregarUsu" href="">Agregar</a></li>
+                                    </ul></li>
+
                                 </ul>
                                 </li>
 
