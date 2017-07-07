@@ -87,12 +87,21 @@ class Paciente implements JsonSerializable{
 
   
     public function jsonSerialize() {
-        $arra = array ($id => $this-> getId(),
-                       'nombre_completo' => $this->getNombre_completo(),
+        if($this->telefono_opcional == null) {
+            $telOpcional = '';
+        }
+        else {
+            $telOpcional = $this->getTelefono_opcional();
+        }
+        $arra = array ('id' => $this->getRut(),
+                        'nombre' => $this->getNombre(),
+                        'apellido_paterno' => $this->getApellido_paterno(),
+                        'apellido_materno' => $this->getApellido_materno(),
                         'fecha_nacimiento' => $this->getFecha_nacimiento(),
-                         'sexo' => $this->getSexo(),
-                         'direccion' => $this->getDireccion(),
-                         'telefono' => $this->getTelefono());
+                        'sexo' => $this->getSexo(),
+                        'direccion' => $this->getDireccion(),
+                        'telefono' => $this->getTelefono(),
+                        'telOpcional' => $telOpcional);
         return $arra;
     }
 

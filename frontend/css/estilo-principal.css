@@ -318,3 +318,9 @@ input {
   }
 
   .mi-menu ul li:last-child a { border: none; }
+
+  .error {
+      color: red;
+      font-weight: bold;
+      border: 2px solid red;
+  }

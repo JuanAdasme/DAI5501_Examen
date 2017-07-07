@@ -37,4 +37,15 @@ class PacienteController{
         }*/
         return $lista;
     }
+    
+    public static function getJSONPaciente($id) {
+        $conexion = DBConnection::getConexion();
+        $dao = new PacienteDao($conexion);
+        
+        $paciente = $dao->buscarPorId($id);
+        if(!$paciente) {
+            return false;
+        }
+        return $paciente->jsonSerialize();
+    }
 }

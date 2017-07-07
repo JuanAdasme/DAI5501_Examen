@@ -28,98 +28,76 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Agregar Paciente</title>
         <link rel="stylesheet" type="text/css" href="css/estilo.css"  media="all">
-        <script src="https://code.jquery.com/jquery-3.2.0.min.js" ></script>
-        <script src="js/jquery.Rut.js" ></script>
-
+        <script type="text/javascript" src="js/jquery-3.2.1.min.js" ></script>
+        <script type="text/javascript" src="js/jquery.Rut.js" ></script> 
     </head>
     <body>
-            <head>
-                <meta charset="UTF-8"/>
-                <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                <title>Agregar Paciente</title>
-                <link rel="stylesheet" type="text/css" href="css/estilo.css"  media="all">
-                <script src="https://code.jquery.com/jquery-3.2.0.min.js" ></script>
-            </head>
-            <body>
-                <div id="contenido">
+    <body>
+        <div id="contenido">
 
-                    <!--<header>
-                      <div id="titulo">
-                        <h1>Hospital Comunal Tetengo</h1>
-                      </div>
-                      <div id="logo-empresa">
-                        <img alt="logo empresa" src="../dr.png"/>
-              
-                      </div>
-                    </header>-->
-                    <div id="vista">
+            <div id="vista">
 
-
-                        <a href="">Volver</a>
+                <a href="">Volver</a>
 
 
 
-                        <form id="formAgendarPaciente" action="#" method="GET">
+                <form id="formAgendarPaciente" action="#" method="GET">
 
-                            <fieldset>
-                                <legend>Datos del Paciente</legend>
-                                <div class="tabla">
+                    <fieldset>
+                        <legend>Datos del Paciente</legend>
+                        <div class="tabla">
 
-                                    <div class="campoFormulario">
-                                        <label for="nombrePaciente">Nombre:</label>
-                                        <input type="text" name="nombrePaciente" required >
-                                    </div>
-                                    <div class="campoFormulario">
-                                        <label for="apellidoPPaciente">Apellido Paterno:</label>
-                                        <input type="text" name="apellidoPPaciente" required >
-                                    </div>
-                                    <div class="campoFormulario">
-                                        <label for="apellidoMPaciente">Apellido Materno:</label>
-                                        <input type="text" name="apellidoMPaciente" >
-                                    </div>
-                                    <div class="campoFormulario">
-                                        <label for="rutPaciente">RUT Paciente:</label>
-                                        <input type="text" name="rutPaciente" required >
-                                    </div>
-                                    <div class="campoFormulario">
-                                        <label for="fechaNacimiento">Fecha de Nacimiento:</label>
-                                        <input type="date" name="fechaNacimiento" required  style="height: 10px; width: 200px;">
-                                    </div>
-                                    <div class="campoFormulario">
-                                        <label for="sexoPaciente">Género:</label>
-                                        <select name="sexoPaciente" style="height: 35px; width: 220px;">
-                                        <optgroup id="optGenero" label="-- Género --" required >
-                                            <option value="Masculino">Masculino</option>
-                                            <option value="Femenino">Femenino</option>
-                                        </select>
-                                    </div>
-                                    <div class="campoFormulario">
-                                        <label for="direccionPaciente">Dirección:</label>
-                                        <input type="text" name="direccionPaciente" required >
-                                    </div>
-                                    <div class="campoFormulario">
-                                        <label for="telefonoPaciente">Teléfono:</label>
-                                        <input type="text" name="telefonoPaciente" required >
-                                    </div>
-                                    <div class="campoFormulario">
-                                        <label for="telefonoOpcional">Teléfono opcional:</label>
-                                        <input type="text" name="telefonoOpcional" >
-                                    </div>
-                                </div><br>
-                            </fieldset>
-
-
-                            <div id="botonera">
-                                <input type="submit" name="btnAgendar" value="Agendar" >
-                                <input type="reset" name="btnReset" >
+                            <div class="campoFormulario">
+                                <label for="nombrePaciente">Nombre:</label>
+                                <input type="text" name="nombrePaciente" required >
                             </div>
+                            <div class="campoFormulario">
+                                <label for="apellidoPPaciente">Apellido Paterno:</label>
+                                <input type="text" name="apellidoPPaciente" required >
+                            </div>
+                            <div class="campoFormulario">
+                                <label for="apellidoMPaciente">Apellido Materno:</label>
+                                <input type="text" name="apellidoMPaciente" >
+                            </div>
+                            <div class="campoFormulario">
+                                <label for="rutPaciente">RUT Paciente:</label>
+                                <input type="text" name="rutPaciente" required >
+                            </div>
+                            <div class="campoFormulario">
+                                <label for="fechaNacimiento">Fecha de Nacimiento:</label>
+                                <input type="date" name="fechaNacimiento" required  style="height: 10px; width: 200px;">
+                            </div>
+                            <div class="campoFormulario">
+                                <label for="sexoPaciente">Género:</label>
+                                <select name="sexoPaciente" style="height: 35px; width: 220px;">
+                                    <optgroup id="optGenero" label="-- Género --" required >
+                                        <option value="Masculino">Masculino</option>
+                                        <option value="Femenino">Femenino</option>
+                                </select>
+                            </div>
+                            <div class="campoFormulario">
+                                <label for="direccionPaciente">Dirección:</label>
+                                <input type="text" name="direccionPaciente" required >
+                            </div>
+                            <div class="campoFormulario">
+                                <label for="telefonoPaciente">Teléfono:</label>
+                                <input type="text" name="telefonoPaciente" required >
+                            </div>
+                            <div class="campoFormulario">
+                                <label for="telefonoOpcional">Teléfono opcional:</label>
+                                <input type="text" name="telefonoOpcional" >
+                            </div>
+                        </div><br>
+                    </fieldset>
 
-                        </form>
+
+                    <div id="botonera">
+                        <input type="submit" name="btnAgendar" value="Agendar" >
+                        <input type="reset" name="btnReset" >
                     </div>
-                </div>
 
-                <!--<footer>
-                  <p>Comuna de Tetengo</p>
-                </footer>-->
-            </body>
+                </form>
+            </div>
+        </div>
+    </body>
 </html>

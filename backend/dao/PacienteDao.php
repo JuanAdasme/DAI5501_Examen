@@ -94,15 +94,16 @@ class PacienteDao implements GenericDao {
         if($sentencia->rowCount() > 0) {
             $fila = $sentencia->fetch();
             $paciente = new Paciente();
-            $paciente->setRut($fila["paciente_rut"]);
-            $paciente->setNombre($fila["paciente_nombre"]);
-            $paciente->setApellido_paterno($fila["paciente_apellido_paterno"]);
-            $paciente->setApellido_materno($fila["paciente_apellido_materno"]);
-            $paciente->setFecha_nacimiento($fila["paciente_fecha_nacimiento"]);
-            $paciente->setSexo($fila["paciente_sexo"]);
-            $paciente->setDireccion($fila["paciente_direccion"]);
-            $paciente->setTelefono($fila["paciente_telefono"]);
-            $paciente->setTelefono_opcional($fila["paciente_telefono_2"]);
+            $paciente->setRut($fila[0]);
+            $paciente->setNombre($fila[1]);
+            $paciente->setApellido_paterno($fila[2]);
+            $paciente->setApellido_materno($fila[3]);
+            $paciente->setFecha_nacimiento($fila[4]);
+            $paciente->setSexo($fila[5]);
+            $direccion = base64_decode($fila[6]);
+            $paciente->setDireccion($direccion);
+            $paciente->setTelefono($fila[7]);
+            $paciente->setTelefono_opcional($fila[8]);
             
             return $paciente;
         }
