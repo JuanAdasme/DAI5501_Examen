@@ -54,7 +54,7 @@
        </ul>
      </fieldset>
 </div>
-    </form>
+    </form><br><br>
     <div id="listMedico" style="display:none">
         <?php include_once __DIR__.'/listaMedico.php'; ?>
     </div>

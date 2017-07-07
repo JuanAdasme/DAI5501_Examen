@@ -54,7 +54,7 @@
      </fieldset>
 
       </div>
-    </form>
+    </form><br><br>
       <footer>
         <p>Comuna de Tetengo</p>
       </footer>

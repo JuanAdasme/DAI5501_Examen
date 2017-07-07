@@ -72,7 +72,7 @@ if(!$_SESSION['perfil'] === 'Administrador') {
                         </ul>
                     </fieldset>
                 </div>
-            </form>
+            </form><br><br>
             <div id="addMedico" style="display:none" >
                 <?php include_once __DIR__.'/agregarMedico.php'; ?>
             </div>

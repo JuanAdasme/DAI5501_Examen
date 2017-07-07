@@ -39,4 +39,21 @@ class EstadisticaAtencionDao implements GenericDao {
           $sentencia->execute();
 
     }
+
+    public function agregarRegistro($registro) {
+
+   }
+
+    public function buscarPorId($id) {
+
+    }
+
+    public function eliminarRegistro($id) {
+
+    }
+
+    public function listarTodos() {
+
+    }
+
 }

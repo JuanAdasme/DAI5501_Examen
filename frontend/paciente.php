@@ -39,11 +39,11 @@
            </tr>
          </thead>
          <tbody>
-           <th></th>
-           <th></th>
-           <th></th>
-           <th></th>
-           <th></th>
+           <td></td>
+           <td></td>
+           <td></td>
+           <td></td>
+           <td></td>
          </tbody>
        </table>
        </div><br>
