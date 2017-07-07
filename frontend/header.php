@@ -7,7 +7,12 @@
     </head>
     <body>
         <header>
-            <h2>Hospital Municipal de Tetengo</h2>
+            <div id="titulo">
+                <h1>Hospital Comunal de Tetengo</h1>
+            </div>
+            <div id="logo-empresa">
+                <img alt="logo empresa" src="img/dr.png"/>
+            </div>
         </header>
     </body>
 </html>

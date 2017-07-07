@@ -7,7 +7,7 @@
     </head>
     <body>
         <footer>
-            <p>Diseño de Aplicaciones para Internet</p>
+            <p>Comuna de Tetengo</p>
         </footer>
     </body>
 </html>

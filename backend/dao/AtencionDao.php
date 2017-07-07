@@ -119,4 +119,34 @@ class AtencionDao implements GenericDao {
         }
         return $atenciones;
     }
+    
+    public function listarPorId($id) {
+        //$query = "SELECT * FROM atencion WHERE atencion_paciente_rut = $id";
+        $query = "  SELECT ate.atencion_id, ate.atencion_fecha_hora,
+                            med.medico_nombre, med.medico_apellido_paterno, med.medico_apellido_materno,
+                            ate.atencion_estado
+                    FROM atencion ate
+                        JOIN medico med ON (med.medico_rut = ate.atencion_medico_rut)
+                    WHERE ate.atencion_paciente_rut = $id";
+        $sent = $this->conexion->prepare($query);
+        $atenciones = [];
+        
+        $sent->execute();
+        
+        //if($sent->rowCount() > 0) {
+            while ($reg = $sent->fetch()) {
+                $ate = array();
+                $ate[0] = $reg[0];
+                $ate[1] = $reg[1];
+                $ate[2] = $reg[2].' '.$reg[3].' '.$reg[4];
+                $ate[3] = $reg[5];
+                
+                array_push($atenciones, $ate);
+            }
+        //}
+        //else {
+        //    return false;
+        //}
+        return $atenciones;
+    }
 }

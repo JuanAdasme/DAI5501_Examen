@@ -10,16 +10,7 @@
     </head>
     <body>
         <div id="contenido">
-
-            <!--<header>
-                <form action="" method="post">
-                    <div id="titulo">
-                        <h1>Hospital Comunal Tetengo</h1>
-                    </div>
-                    <div id="logo-empresa">
-                        <img alt="logo empresa" src="../dr.png"  />
-                    </div>
-            </header>-->
+            
             <div id="vista">
 
                 <a href="">Volver</a>

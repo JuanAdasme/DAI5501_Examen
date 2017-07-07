@@ -27,4 +27,11 @@ class AtencionController {
 
         return $dao->resumenAtenciones();
     }
+    
+    public static function listarPorId($id) {
+        $conexion = DBConnection::getConexion();
+        $dao = new AtencionDao($conexion);
+        
+        return $dao->listarPorId($id);
+    }
 }

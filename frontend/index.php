@@ -5,7 +5,7 @@
         <meta charset="UTF-8">
         <title>Consultorio Municipal de Tetengo</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" type="text/css" href="css/style.css">
+        <link rel="stylesheet" type="text/css" href="css/estilo.css">
         <script src="js/jquery-3.2.1.min.js" ></script>
         <script src="js/jquery.Rut.js"></script>
         
@@ -21,7 +21,6 @@
                         <li>Inicio</li>
                     </ul>
                 </div>
-                
             </div>
             
             <?php include_once __DIR__.'/footer.php'; ?>
