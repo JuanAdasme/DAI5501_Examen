@@ -33,7 +33,7 @@ class EstadisticaAtencionDao implements GenericDao {
 
           FROM paciente pac
           JOIN atencion at ON(pac.paciente_rut = at.atencion_paciente_rut)
-          where atencion_estado = "Realizada" ";
+          where atencion_estado = 'Realizada' ";
 
           $sentencia = $this->conexion->prepare($query);
           $sentencia->execute();

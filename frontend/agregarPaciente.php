@@ -7,11 +7,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
             isset($_GET['direccionPaciente']) && isset($_GET['telefonoPaciente'])) {
 
         $opt = $_GET['telefonoOpcional'];
-        if($_GET['telefonoOpcional'] == '') {
+        if ($_GET['telefonoOpcional'] == '') {
             $opt = NULL;
         }
 
-        $exito = PacienteController::agregarPaciente($_GET['rutPaciente'],$_GET['nombrePaciente'], $_GET['apellidoPPaciente'], $_GET['apellidoMPaciente'], $_GET['fechaNacimiento'], $_GET['sexoPaciente'], $_GET['direccionPaciente'], $_GET['telefonoPaciente'], $opt);
+        $exito = PacienteController::agregarPaciente($_GET['rutPaciente'], $_GET['nombrePaciente'], $_GET['apellidoPPaciente'], $_GET['apellidoMPaciente'], $_GET['fechaNacimiento'], $_GET['sexoPaciente'], $_GET['direccionPaciente'], $_GET['telefonoPaciente'], $opt);
         if (!$exito) {
             ?><script type="text/javascript" >alert('No Funciona!'); console.log('No Funciona!')</script><?php
         } else {
@@ -29,10 +29,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
         <title>Agregar Paciente</title>
         <link rel="stylesheet" type="text/css" href="css/estilo.css"  media="all">
         <script src="https://code.jquery.com/jquery-3.2.0.min.js" ></script>
+        <script src="js/jquery.Rut.js" ></script>
 
     </head>
     <body>
-        <div id="contenido">
             <head>
                 <meta charset="UTF-8"/>
                 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -87,7 +87,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
                                     </div>
                                     <div class="campoFormulario">
                                         <label for="sexoPaciente">Género:</label>
-                                        <input type="text" name="sexoPaciente" required >
+                                        <select name="sexoPaciente" style="height: 35px; width: 220px;">
+                                        <optgroup id="optGenero" label="-- Género --" required >
+                                            <option value="Masculino">Masculino</option>
+                                            <option value="Femenino">Femenino</option>
+                                        </select>
                                     </div>
                                     <div class="campoFormulario">
                                         <label for="direccionPaciente">Dirección:</label>

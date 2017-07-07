@@ -1,4 +1,26 @@
+<?php
+include_once __DIR__ . '/../backend/controller/UsuarioController.php';
+if ($_SERVER['REQUEST_METHOD'] === 'GET') {
 
+    if (isset($_GET['rutUsuario']) && isset($_GET['claveUsuario']) && isset($_GET['confirmarClave']) &&
+            isset($_GET['perfilUsuario']) && isset($_GET['nombreUsuario']) && isset($_GET['fechaRegistro'])) {
+        
+        if($_GET['claveUsuario'] != $_GET['confirmarClave']) {
+            ?>
+            <script type="text/javascript"> alert('Las claves no coinciden');</script>
+            <?php
+        }
+
+        $exito = UsuarioController::agregarUsuario($_GET['rutUsuario'], $_GET['claveUsuario'], $_GET['perfilUsuario'], $_GET['nombreUsuario'], $_GET['fechaRegistro']);
+        if (!$exito) {
+            ?><script type="text/javascript" >alert('No Funciona!'); console.log('No Funciona!')</script><?php
+        } else {
+            ?><script type="text/javascript" >alert("It's working! It's working!!");</script><?php
+        }
+    }
+}
+?>
+            
 <!DOCTYPE html>
 <html>
     <head>
@@ -29,44 +51,45 @@
                 <form id="formAgendar" action="#" method="GET">
 
                     <fieldset>
-                        <legend>Datos del Medico</legend>
+                        <legend>Datos del Usuario</legend>
                         <div id="tabla">
                             <div class="campoFormulario">
-                                <label for="especialidadMedico">Especialidad Médico:</label>
-                                <select name="especialidad" style="height: 35px; width: 220px;">
-                                    <optgroup id="optEspecialidad" label="-- Especialidad --">
-                                        <option value="">Seleccione Especialidad</option>
-                                        <option value="Medicina General">Medicina General</option>
-                                        <option value="Fonoaudiologia">Fonoaudiología</option>
-                                        <option value="Kinesiologia">Kinesiología</option>
-                                        <option value="Traumatologia">Traumatología</option>
-                                        <option value="Nutricionista">Nutricionista</option>
+                                <label for="rutUsuario">RUT:</label>
+                                <input type="text" name="rutUsuario" required>
+                            </div>
+                            <div class="campoFormulario">
+                                <label for="claveUsuario">Clave Usuario:</label>
+                                <input type="password" name="claveUsuario" required >
+                            </div>
+                            <div class="campoFormulario">
+                                <label for="confirmarClave">Clave Usuario:</label>
+                                <input type="password" name="confirmarClave" required >
+                            </div>
+                            <div class="campoFormulario">
+                                <label for="perfilUsuario">Perfil:</label>
+                                <select name="perfilUsuario">
+                                    <optgroup label="Perfil">
+                                        <option value="Director">Director</option>
+                                        <option value="Administrador">Administrador</option>
+                                        <option value="Secretario">Secretario</option>
+                                        <option value="Paciente">Paciente</option>
+                                    </optgroup>
                                 </select>
                             </div>
                             <div class="campoFormulario">
-                                <label for="nombreMedico">Nombre Médico:</label>
-                                <select name="medicoTratante" required  style="height: 35px; width: 220px;">
-                                    <option value="">Seleccione Médico</option>
-                                </select>
+                                <label for="nombreUsuario">Nombre:</label>
+                                <input type="text" name="nombreUsuario" required >
                             </div>
                             <div class="campoFormulario">
-                                <label for="rutMedico">RUT Médico:</label>
-                                <input type="text" name="rutMedico" readonly >
-                            </div>
-                            <div class="campoFormulario">
-                                <label for="valorConsulta">Valor Consulta:</label>
-                                <input type="text" name="valorConsuta" readonly >
-                            </div>
-                            <div class="campoFormulario">
-                                <label for="fechaAtencion">Fecha de Contratacion:</label>
-                                <input type="date" name="fechaAtencion" required  style="height: 10px; width: 200px;">
+                                <label for="fechaRegistro">Fecha de Registro:</label>
+                                <input type="date" name="fechaRegistro" value="<?= date('Y-m-d'); ?>" readonly >
                             </div>
                         </div><br>
 
 
-                        <div id="tabla">
-                            <input type="submit" name="btnAgendar" value="Agendar" >
-                            <input type="submit" name="btnReset" value="Reestablecer" >
+                        <div id="botonera">
+                            <input type="submit" name="btnRegistrar" value="Registrar" >
+                            <input type="reset" name="btnReset" >
                         </div>
                     </fieldset>
 

@@ -17,7 +17,7 @@ class UsuarioController {
         $usuario->setNombre($nombre);
         $usuario->setFechaRegistro(date('d/m/y'));
 
-        $conexion = ConexionDB::getConexion();
+        $conexion = DBConnection::getConexion();
 
         $dao = new UsuarioDao($conexion);
         return $dao->agregarRegistro($usuario);
@@ -25,7 +25,7 @@ class UsuarioController {
 
     public static function validarUsuario($id, $clave) {
 
-        $conexion = ConexionDB::getConexion();
+        $conexion = DBConnection::getConexion();
         $daoUsuario = new UsuarioDao($conexion);
 
         $usuario = $daoUsuario->buscarPorId($id);

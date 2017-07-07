@@ -37,6 +37,20 @@ jQuery(document).ready(function() {
         jQuery('#listUsuario').css('display','block');
     });
     
+    jQuery('#medico').click(function(event) {
+        limpiar();
+        event.preventDefault();
+    });
+    
+    jQuery('#paciente').click(function(event) {
+        limpiar();
+        event.preventDefault();
+    });
+    
+    jQuery('#usuario').click(function(event) {
+        limpiar();
+        event.preventDefault();
+    });
     
     function limpiar() {
         jQuery('#listMedico, #addMedico, #delMedico').css('display','none');
