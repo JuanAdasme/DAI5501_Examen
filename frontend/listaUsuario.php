@@ -60,10 +60,7 @@ $users = UsuarioController::listarUsuarios();
                         </div><br>
                     </fieldset>
 
-                    <div id="tabla">
-                        <a href=""><input type="submit" name="entrar" value="Agregar" /></a>
-                        <input type="button" name="salir" value="Eliminar" />
-                    </div>
+
 
                 </form>
             </div>

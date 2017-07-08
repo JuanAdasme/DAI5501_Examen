@@ -226,7 +226,7 @@ input {
     /* el color de fondo */
     background: #00467F;  /* fallback for old browsers */
     background: -webkit-linear-gradient(to right, #A5CC82, #00467F);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #A5CC82, #00467F); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+   background: linear-gradient(to right, #A5CC82, #00467F); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
   }
 
@@ -271,11 +271,11 @@ input {
   /* los submenús */
   .mi-menu ul {
     border-radius: 0 0 5px 5px;
-    left: 0;
+   left: 0;
     margin: 0;
     opacity: 0;
-    position: absolute;
-    top: 40px;
+   position: absolute;
+   top: 40px;
     /* el color de fondo */
     background: #00467F;  /* fallback for old browsers */
     background: -webkit-linear-gradient(to right, #A5CC82, #00467F);  /* Chrome 10-25, Safari 5.1-6 */
@@ -283,8 +283,8 @@ input {
 
     /* animamos su visibildiad */
     -moz-transition: opacity .25s ease .1s;
-    -webkit-transition: opacity .25s ease .1s;
-    -o-transition: opacity .25s ease .1s;
+   -webkit-transition: opacity .25s ease .1s;
+   -o-transition: opacity .25s ease .1s;
     -ms-transition: opacity .25s ease .1s;
     transition: opacity .25s ease .1s;
   }
@@ -306,8 +306,8 @@ input {
   .mi-menu li:hover > ul li {
     height: 36px;
     overflow: visible;
-    padding: 0;
-  }
+   padding: 0;
+   }
   .mi-menu ul li a {
     border: none;
     border-bottom: 1px solid #111;
@@ -318,9 +318,3 @@ input {
   }
 
   .mi-menu ul li:last-child a { border: none; }
-
-  .error {
-      color: red;
-      font-weight: bold;
-      border: 2px solid red;
-  }

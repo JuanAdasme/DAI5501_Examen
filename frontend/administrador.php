@@ -26,7 +26,7 @@
 
             <?php include_once __DIR__ . '/header.php' ?>
 
-            <div id="login">
+
                 <fieldset style="border:6px groove #ccc; width: 250px; height: 60px;">
                     <legend>Menu Principal Administrador</legend>
 
@@ -34,37 +34,25 @@
 
                         <li><a id="medico" href="">Medicos</a>
                             <ul>
-                                <li><a id="listarMed" href="">Listar</a>
-                                    <ul>
-                                        <li><a id="agregarMed" href="">Agregar</a></li>
-                                    </ul>
-                                </li>
+                                <li><a id="listarMed" href="">Listar</a></li>
+                               <li><a id="agregarMed" href="">Agregar</a></li>
                             </ul>
                         </li>
                         <li><a id="paciente" href="">Pacientes</a>
                             <ul>
-                                <li><a id="listarPac" href="">Listar</a>
-                                    <ul>
-                                        <li><a id="agregarPac" href="">Agregar</a></li>
-                                    </ul>
-                                </li>
-
+                                <li><a id="listarPac" href="">Listar</a></li>
+                                <li><a id="agregarPac" href="">Agregar</a></li>
                             </ul>
                         </li>
                         <li><a id="usuario" href="">Usuario</a>
                             <ul>
-                                <li><a id="listarUsu" href="">Listar</a>
-                                    <ul>
-                                        <li><a id="agregarUsu" href="">Agregar</a></li>
-                                    </ul></li>
-
+                                <li><a id="listarUsu" href="">Listar</a></li>
+                                <li><a id="agregarUsu" href="">Agregar</a></li>
                             </ul>
                         </li>
 
                     </ul>
-                </fieldset>
-            </div>
-            <br><br>
+                </fieldset><br><br>
             <div id="addMedico" style="display:none" >
                 <?php include_once __DIR__ . '/agregarMedico.php'; ?>
             </div>

@@ -63,11 +63,7 @@ $listaMedicos = MedicoController::listarMedicos();
                                 </tbody>
                             </table>
                         </div><br>
-
-                        <div id="tabla">
-                            <a href=""><input type="submit" name="entrar" value="Agregar" /></a>
-                            <input type="button" name="salir" value="Eliminar" />
-                        </div>
+                        
 
                     </fieldset>
                 </form>

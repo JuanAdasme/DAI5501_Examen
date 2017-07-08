@@ -16,51 +16,51 @@
 
             <?php include_once __DIR__ . '/header.php' ?>
 
-            <div id="vista">
+
                 <fieldset>
                     <legend>Menu Principal Secretaria</legend>
 
-                    <div id="menuhor">
-                        <ul id="mi-menu">
-                            <li><a href="">Medicos</a>
-                                <ul>
-                                    <li><a id="listarMed" href="">Listar</a></li>
-                                </ul></li>
-                            <li><a href="">Pacientes</a>
-                                <ul>
-                                    <li><a id="listarPac" href="">Listar</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="">Atenciones</a>
-                                <ul>
-                                    <li><a id="listarAte" href="">Listar</a>
-                                        <ul>
-                                            <li><a id="agregarAte" href="">Agregar</a></li>
-                                        </ul>
-                                    </li>
-                                </ul></li>
-                        </ul>
-                    </div>
+
+                    <ul class="mi-menu" style="width: 300px;">
+                       <li><a href="">Medicos</a>
+                           <ul>
+                               <li><a id="listarMed" href="">Listar</a></li>
+                           </ul>
+                       </li>
+                       <li><a href="">Pacientes</a>
+                           <ul>
+                               <li><a id="listarPac" href="">Listar</a></li>
+                           </ul>
+                       </li>
+                       <li><a href="">Atenciones</a>
+                           <ul>
+                               <li><a id="listarAte" href="">Listar</a></li>
+                              <li><a id="agregarAte" href="">Agregar</a></li>
+                           </ul>
+                           </li>
+                   </ul>
+
+
                 </fieldset>
-            </div>
+
             <br><br>
-            
+
             <div id="listMedico" style="display: none">
                 <?php include_once __DIR__.'/listaMedico.php' ?>
             </div>
-            
+
             <div id="listPaciente" style="display: none">
                 <?php include_once __DIR__.'/listaPaciente.php' ?>
             </div>
-            
+
             <div id="listAtencion" style="display: none">
                 <?php include_once __DIR__.'/listaAtencion.php' ?>
             </div>
-            
+
             <div id="addAtencion" style="display: none">
                 <?php include_once __DIR__.'/agregarAtencion.php' ?>
             </div>
-            
+
             <?php include_once __DIR__ . '/footer.php'; ?>
 
         </div>

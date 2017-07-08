@@ -15,11 +15,11 @@
 
             <?php include_once __DIR__ . '/header.php' ?>
 
-            <div id="vista">
+
                 <fieldset style="border:6px groove #ccc; width: 250px; height: 60px;">
                     <legend>Menu Principal Director</legend>
 
-                    <ul class="mi-menu">
+                    <ul class="mi-menu" style="width: 380px;">
                         <li><a href="">Medicos</a>
                             <ul>
                                 <li><a id="listarMed" href="">Listar</a></li>
@@ -37,16 +37,13 @@
                         </li>
                         <li><a href="#">Estadisticas</a>
                             <ul>
-                                <li><a href="">Consultar Atencion</a>
-                                    <ul>
-                                        <li><a href="">Consultar Paciente</a>
-                                    </ul>
-                                </li>
+                                <li><a href="">Atenciones</a></li>
+                               <li><a href="">Pacientes</a></li>
                             </ul>
                         </li>
                     </ul>
                 </fieldset>
-            </div>
+
             <br><br>
             <div id="listMedico" style="display:none">
                 <?php include_once __DIR__ . '/listaMedico.php'; ?>
