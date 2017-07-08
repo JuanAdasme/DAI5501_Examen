@@ -1,6 +1,6 @@
 <?php
 
-class Usuario {
+class Usuario implements JsonSerializable {
     
     private $id;
     private $clave;
@@ -51,4 +51,11 @@ class Usuario {
         $this->fechaRegistro = $fechaRegistro;
     }
     
+    function jsonSerialize() {
+        $arr = array('id' => $this->getId(),
+                        'nombre' => $this->getNombre(),
+                        'perfil' => $this->getPerfil());
+        
+        return $arr;
+    }
 }

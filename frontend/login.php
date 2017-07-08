@@ -1,6 +1,6 @@
 <?php
 session_start();
-if(isset($_SESSION['usuario'])) {
+if(isset($_SESSION['id'])) {
     header('location: index.php');
 }
 ?>
@@ -31,7 +31,7 @@ if(isset($_SESSION['usuario'])) {
                     </ul>
                 </div>
                 
-                <form id="formLogin" action="#" method="POST">
+                <form id="formLogin" action="../backend/procesar-login.php" method="POST">
                     <fieldset>
                         <legend>Iniciar sesión</legend>
                         <div class="campoFormulario">

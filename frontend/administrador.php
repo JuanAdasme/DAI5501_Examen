@@ -1,14 +1,9 @@
 <?php
-/*
   session_start();
 
-  if(!isset($_SESSION['perfil'])) {
-  header('location: index.php');
+  if($_SESSION['perfil'] != 'Administrador' || !isset($_SESSION['id'])) {
+      header('location: login.php');
   }
-  if(!$_SESSION['perfil'] === 'Administrador') {
-
-  }
- */
 ?>
 <!DOCTYPE html>
 <html>

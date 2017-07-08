@@ -1,4 +1,9 @@
-
+<?php
+session_start();
+if($_SESSION['perfil'] != 'Secretario' || !isset($_SESSION['id'])) {
+    header('location: login.php');
+}
+?>
 <!DOCTYPE html>
 <html>
     <head>

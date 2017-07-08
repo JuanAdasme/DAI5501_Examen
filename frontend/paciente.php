@@ -3,17 +3,12 @@ session_start();
 
 include_once __DIR__ . '/../backend/controller/AtencionController.php';
 
+if($_SESSION['perfil'] != 'Paciente' || !isset($_SESSION['id'])) {
+    header('location: login.php');
+}
 if ($_SESSION['perfil'] === 'Paciente') {
 
     $atenciones = AtencionController::listarPorId($_SESSION['id']);
-} elseif (!isset($_SESSION['id'])) {
-    ?><script type="text/javascript" >alert('Debe iniciar sesión para continuar'); console.log('Debe iniciar sesión para continuar')</script><?php
-    header('location: login.php');
-} else {
-    ?>
-    <script type="text/javascript">alert('Usuario no autorizado');</script>
-    <?php
-    header('location: index.php');
 }
 ?>
 <!DOCTYPE html>

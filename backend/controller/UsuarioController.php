@@ -30,16 +30,21 @@ class UsuarioController {
 
         $usuario = $daoUsuario->buscarPorId($id);
 
-        if ($usuario == null) {
+        if ($usuario === null) {
+            
+            ?>
+        <script>alert("Usuario null");</script>
+        <?php
+        return null;
+        }
+        
+        if ($usuario === false) {
             return false;
         }
-
-        if (password_verify($clave, $usuario->getClave())) {
+        elseif(password_verify($clave, $usuario->getClave())) {
             $_SESSION["rut"] = $usuario->getId();
             return true;
         }
-
-        return false;
     }
     
     public static function listarUsuarios() {
@@ -47,5 +52,12 @@ class UsuarioController {
         $dao = new UsuarioDao($conexion);
         
         return $dao->listarTodos();
+    }
+    
+    public static function getDatosUsuario($id) {
+        $conexion = DBConnection::getConexion();
+        $dao = new UsuarioDao($conexion);
+        
+        return $dao->buscarPorId($id)->jsonSerialize();
     }
 }

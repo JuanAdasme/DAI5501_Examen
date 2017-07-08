@@ -41,15 +41,16 @@ class UsuarioDao implements GenericDao {
         
         if($sentencia->rowCount() > 0) {
             $usuario = new Usuario();
-            $resultado = $sentencia->fetch();
+            
+            foreach($sentencia as $resultado) {
             /* @var $resultado Usuario */
             
-            $usuario->setId($id);
-            $usuario->setClave($resultado->getClave());
-            $usuario->setPerfil($resultado->getPerfil());
-            $usuario->setNombre($resultado->getNombre());
-            $usuario->setFechaRegistro($resultado->getFechaRegistro());
-            
+                $usuario->setId($id);
+                $usuario->setClave($resultado[1]);
+                $usuario->setPerfil($resultado[2]);
+                $usuario->setNombre($resultado[3]);
+                $usuario->setFechaRegistro($resultado[4]);
+            }
             return $usuario;
         }
         
