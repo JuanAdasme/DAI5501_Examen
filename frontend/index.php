@@ -15,12 +15,10 @@
             
             <?php include_once __DIR__.'/header.php'; ?>
             
-            <div id="contenido">
-                <div id="migas">
-                    <ul>
-                        <li>Inicio</li>
-                    </ul>
-                </div>
+            <div id="contenidoIndex">
+                <p>Presentación</p>
+                <input type="button" name="btnLogin" value="Iniciar Sesión" onclick="window.location ='login.php'">
+                
             </div>
             
             <?php include_once __DIR__.'/footer.php'; ?>

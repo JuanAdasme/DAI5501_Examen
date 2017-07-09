@@ -1,6 +1,6 @@
 <?php
 session_start();
-if($_SESSION['perfil'] != 'Secretario' || !isset($_SESSION['id'])) {
+if ($_SESSION['perfil'] != 'Secretario' || !isset($_SESSION['id'])) {
     header('location: login.php');
 }
 ?>
@@ -21,49 +21,55 @@ if($_SESSION['perfil'] != 'Secretario' || !isset($_SESSION['id'])) {
 
             <?php include_once __DIR__ . '/header.php' ?>
 
-
-                <fieldset>
-                    <legend>Menu Principal Secretaria</legend>
-
-
-                    <ul class="mi-menu" style="width: 300px;">
-                       <li><a href="">Medicos</a>
-                           <ul>
-                               <li><a id="listarMed" href="">Listar</a></li>
-                           </ul>
-                       </li>
-                       <li><a href="">Pacientes</a>
-                           <ul>
-                               <li><a id="listarPac" href="">Listar</a></li>
-                           </ul>
-                       </li>
-                       <li><a href="">Atenciones</a>
-                           <ul>
-                               <li><a id="listarAte" href="">Listar</a></li>
-                              <li><a id="agregarAte" href="">Agregar</a></li>
-                           </ul>
-                           </li>
-                   </ul>
+            <div id="saludo">
+                <p><?php
+                    if (isset($_SESSION['id'])) {
+                        echo 'Bienvenido, ' . $_SESSION['nombre'] . ' [<a href="cerrarSesion.php">Salir</a>]';
+                    }
+                    ?></p>
+            </div>
+            <fieldset>
+                <legend>Menu Principal Secretaria</legend>
 
 
-                </fieldset>
+                <ul class="mi-menu" style="width: 300px;">
+                    <li><a href="">Medicos</a>
+                        <ul>
+                            <li><a id="listarMed" href="">Listar</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="">Pacientes</a>
+                        <ul>
+                            <li><a id="listarPac" href="">Listar</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="">Atenciones</a>
+                        <ul>
+                            <li><a id="listarAte" href="">Listar</a></li>
+                            <li><a id="agregarAte" href="">Agregar</a></li>
+                        </ul>
+                    </li>
+                </ul>
+
+
+            </fieldset>
 
             <br><br>
 
             <div id="listMedico" style="display: none">
-                <?php include_once __DIR__.'/listaMedico.php' ?>
+                <?php include_once __DIR__ . '/listaMedico.php' ?>
             </div>
 
             <div id="listPaciente" style="display: none">
-                <?php include_once __DIR__.'/listaPaciente.php' ?>
+                <?php include_once __DIR__ . '/listaPaciente.php' ?>
             </div>
 
             <div id="listAtencion" style="display: none">
-                <?php include_once __DIR__.'/listaAtencion.php' ?>
+                <?php include_once __DIR__ . '/listaAtencion.php' ?>
             </div>
 
             <div id="addAtencion" style="display: none">
-                <?php include_once __DIR__.'/agregarAtencion.php' ?>
+                <?php include_once __DIR__ . '/agregarAtencion.php' ?>
             </div>
 
             <?php include_once __DIR__ . '/footer.php'; ?>

@@ -318,3 +318,11 @@ input {
   }
 
   .mi-menu ul li:last-child a { border: none; }
+
+  #saludo p {
+      text-align: center;
+  }
+  
+  #saludo a {
+      font-weight: bolder;
+  }

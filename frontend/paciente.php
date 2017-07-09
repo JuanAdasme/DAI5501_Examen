@@ -3,7 +3,7 @@ session_start();
 
 include_once __DIR__ . '/../backend/controller/AtencionController.php';
 
-if($_SESSION['perfil'] != 'Paciente' || !isset($_SESSION['id'])) {
+if ($_SESSION['perfil'] != 'Paciente' || !isset($_SESSION['id'])) {
     header('location: login.php');
 }
 if ($_SESSION['perfil'] === 'Paciente') {
@@ -25,7 +25,15 @@ if ($_SESSION['perfil'] === 'Paciente') {
     <body>
         <div id="contenido">
 
-<?php include_once __DIR__ . '/header.php' ?>
+            <?php include_once __DIR__ . '/header.php' ?>
+
+            <div id="saludo">
+                <p><?php
+                    if (isset($_SESSION['id'])) {
+                        echo 'Bienvenido, ' . $_SESSION['nombre'] . ' [<a href="cerrarSesion.php">Salir</a>]';
+                    }
+                    ?></p>
+            </div>
 
             <div id="vista">
                 <fieldset>
@@ -43,17 +51,17 @@ if ($_SESSION['perfil'] === 'Paciente') {
                                 </tr>
                             </thead>
                             <tbody>
-                                <?php 
-                                    foreach($atenciones as $ate) {
-                                ?>
-                                <tr>
-                                    <td><?= $ate[0] ?></td>
-                                    <td><?= $ate[1] ?></td>
-                                    <td><?= $ate[2] ?></td>
-                                    <td><?= $ate[3] ?></td>
-                                </tr>
                                 <?php
-                                    }
+                                foreach ($atenciones as $ate) {
+                                    ?>
+                                    <tr>
+                                        <td><?= $ate[0] ?></td>
+                                        <td><?= $ate[1] ?></td>
+                                        <td><?= $ate[2] ?></td>
+                                        <td><?= $ate[3] ?></td>
+                                    </tr>
+                                    <?php
+                                }
                                 ?>
                             </tbody>
                         </table>
@@ -62,7 +70,7 @@ if ($_SESSION['perfil'] === 'Paciente') {
                 </fieldset>
             </div>
 
-<?php include_once __DIR__ . '/footer.php'; ?>
+            <?php include_once __DIR__ . '/footer.php'; ?>
         </div>
     </body>
 </html>
