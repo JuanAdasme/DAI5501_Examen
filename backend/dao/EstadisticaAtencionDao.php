@@ -30,8 +30,8 @@ class EstadisticaAtencionDao implements GenericDao {
           $estAtencion = array(
               'mes' => $fila[0],
               'estado'=> $fila[1],
-              'especialidad' = $fila[2],
-              'medicoNombre'= $fila[3].' '.$fila[4].' '.$fila[5]
+              'especialidad' => $fila[2],
+              'medicoNombre'=> $fila[3].' '.$fila[4].' '.$fila[5]
           );
 
           array_push($lista, $estAtencion);
@@ -58,7 +58,7 @@ class EstadisticaAtencionDao implements GenericDao {
           foreach ($sentencia as $fila) {
             $estPaciente = array(
                 'sexo'=> $fila[0],
-                'atenciones' = $fila[1]
+                'atenciones' => $fila[1]
             );
 
             array_push($lista, $estPaciente);
