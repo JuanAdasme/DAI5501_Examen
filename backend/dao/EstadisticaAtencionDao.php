@@ -1,6 +1,8 @@
 <?php
 
 include_once __DIR__.'/../domain/Atencion.php';
+include_once __DIR__.'/../domain/Paciente.php';
+include_once __DIR__.'/../domain/Medico.php';
 include_once __DIR__.'/GenericDao.php';
 
 class EstadisticaAtencionDao implements GenericDao {
@@ -14,20 +16,34 @@ class EstadisticaAtencionDao implements GenericDao {
 
 
     public function estadisticaAtencion(){
-        $estadisticaAt = array();
-        $query = "SELECT at.atencion_estado, med.MEDICO_ESPECIALIDAD, med.MEDICO_NOMBRE,
-         med.medico_apellido_materno, med.MEDICO_APELLIDO_PATERNO
-        FROM atencion at
-        JOIN medico med ON (med.medico_rut = at.atencion_medico_rut)";
+
+        $query = "SELECT month(at.atencion_fecha_hora),at.atencion_estado, med.medico_especialidad, med.medico_nombre ,
+        med.medico_apellido_paterno, med.medico_apellido_materno
+        from atencion at
+        join medico med on (med.medico_rut = at.atencion_medico_rut) order by month(atencion_fecha_hora)";
 
         $sentencia = $this->conexion->prepare($query);
         $sentencia->execute();
+        $lista = [];
+
+        foreach ($sentencia as $fila) {
+          $estAtencion = array(
+              'mes' => $fila[0],
+              'estado'=> $fila[1],
+              'especialidad' = $fila[2],
+              'medicoNombre'= $fila[3].' '.$fila[4].' '.$fila[5]
+          );
+
+          array_push($lista, $estAtencion);
+        }
+
+        return $lista;
 
     }
 
 
     public function estadisticaPaciente(){
-          $estadisicaPac = array();
+
           $query = "SELECT TIMESTAMPDIFF(YEAR,paciente_fecha_nacimiento,CURDATE()) AS edad,PACIENTE_SEXO,
           count(at.atencion_id)
 
@@ -37,6 +53,19 @@ class EstadisticaAtencionDao implements GenericDao {
 
           $sentencia = $this->conexion->prepare($query);
           $sentencia->execute();
+          $lista = [];
+
+          foreach ($sentencia as $fila) {
+            $estPaciente = array(
+                'sexo'=> $fila[0],
+                'atenciones' = $fila[1]
+            );
+
+            array_push($lista, $estPaciente);
+          }
+
+          return $lista;
+
 
     }
 

@@ -1,4 +1,7 @@
-
+<?php
+include_once __DIR__ . '/../backend/controller/EstadisticaController.php';
+$lista = EstadisticaController::listarEstadisticaPaciente();
+?>
 <!DOCTYPE html>
 <html>
   <head>
@@ -38,9 +41,17 @@
            </tr>
          </thead>
          <tbody>
-           <td></td>
-           <td></td>
-           <td></td>
+           <?php
+           foreach ($lista as $epac) {
+               ?>
+            <tr>
+           <td>test</td>
+           <td><?= $epac['sexo'] ?></td>
+           <td><?= $epac['atenciones'] ?></td>
+         </tr>
+           <?php
+       }
+       ?>
          </tbody>
        </table>
        </div><br>
