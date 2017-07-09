@@ -1,4 +1,7 @@
-
+<?php
+include_once __DIR__ . '/../backend/controller/EstadisticaController.php';
+$lista = EstadisticaController::listarEstadisticaAtencion();
+?>
 <!DOCTYPE html>
 <html>
   <head>
@@ -32,19 +35,27 @@
 
          <thead>
            <tr>
-             <th>Rango de Fechas</th>
+
              <th>Meses</th>
              <th>Especialidad</th>
              <th>Medico</th>
              <th>Estado Atencion</th>
+
            </tr>
          </thead>
          <tbody>
-           <td></td>
-           <td></td>
-           <td></td>
-           <td></td>
-           <td></td>
+           <tr>
+             <?php
+             foreach ($lista as $eaten) {
+                 ?>
+             <td><?= $eaten['mes'] ?></td>
+             <td><?= $eaten['estado'] ?></td>
+             <td><?= $eaten['especialidad'] ?></td>
+             <td><?= $eaten['medicoNombre'] ?></td>
+           </tr>
+           <?php
+         }
+         ?>
          </tbody>
        </table>
        </div><br>
