@@ -15,7 +15,7 @@
             
             <?php include_once __DIR__.'/header.php'; ?>
             
-            <div id="contenidoIndex">
+            <div id="vista">
                 <p>Presentación</p>
                 <input type="button" name="btnLogin" value="Iniciar Sesión" onclick="window.location ='login.php'">
                 

@@ -1,6 +1,19 @@
 jQuery(document).ready(function() {
     
     
+     $(".cerrar").click(function() {
+         jQuery(".modal").fadeOut(300);
+     });
+     
+    function modal() {
+        jQuery(".modal").fadeIn();
+    }
+    
+    $(".eliminar").click(function(event) {
+        event.preventDefault();
+        modal();
+    });
+    
     jQuery('#listarMed').click(function(event) {
         limpiar();
         event.preventDefault();

@@ -28,6 +28,9 @@ $users = UsuarioController::listarUsuarios();
                                         <th>Perfil</th>
                                         <th>Nombre</th>
                                         <th>Fecha Registro</th>
+                                        <?php if($_SESSION['perfil'] === 'Administrador') { ?>
+                                        <th>Eliminar</th>
+                                        <?php } ?>
                                     </tr>
                                 </thead>
 
@@ -40,11 +43,15 @@ $users = UsuarioController::listarUsuarios();
                                             <td><?= $user['perfil'] ?></td>
                                             <td><?= $user['nombre'] ?></td>
                                             <td><?= $user['fechaRegistro'] ?></td>
-                                        </tr>
-
                                         <?php
-                                    }
-                                    ?>
+                                        if($_SESSION['perfil'] === 'Administrador') {
+                                            ?>
+                                        <td> <a href="" class="eliminar">[Eliminar]</a></td>
+                                            <?php
+                                        }
+                                        }
+                                        ?>
+                                    </tr>
                                 </tbody>
                             </table>
                         </div><br>

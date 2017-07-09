@@ -30,6 +30,9 @@ $lista = PacienteController::listarPacientes();
                                     <th>Sexo</th>
                                     <th>Dirección</th>
                                     <th>Telefono</th>
+                                    <?php if($_SESSION['perfil'] === 'Administrador') { ?>
+                                    <th>Eliminar</th>
+                                    <?php } ?>
                                 </tr>
                             </thead>
                             <tbody>
@@ -45,10 +48,16 @@ $lista = PacienteController::listarPacientes();
                                     <td><?= $pac['sexo'] ?></td>
                                     <td><?= $pac['direccion'] ?></td>
                                     <td><?= $pac['telefono'] ?></td>
-                                </tr>
+                                
                                 <?php
-                            }
-                            ?>
+                                    if($_SESSION['perfil'] === 'Administrador') {
+                                        ?>
+                                    <td> <a href="" class="eliminar">[Eliminar]</a></td>
+                                        <?php
+                                    }
+                                    }
+                                    ?>
+                                </tr>
                             </tbody>
                         </table>
                     </div><br>

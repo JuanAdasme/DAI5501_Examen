@@ -80,7 +80,7 @@ footer p:after {
 }
 
 #logo-empresa img {
-        content: url(../img/dr.png);
+        content: url(../img/dr.svg);
         width:80px;
         height:80px;
         margin-top: 10px;
@@ -151,6 +151,11 @@ fieldset {
   width: 200px;
 }
 
+input[type="password"] {
+    height: 10px;
+    width: 200px;
+}
+
 #vista input[type="button"] {
 
     height: 20px;
@@ -200,11 +205,11 @@ fieldset {
     min-width: 80px;
     display:block;
 }
-
+/*
 #vista input {
     width: 90%;
 }
-
+*/
 input {
     width: 90%;
 }
@@ -326,3 +331,36 @@ input {
   #saludo a {
       font-weight: bolder;
   }
+  
+  
+  .modal{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background-color:rgba(0,0,0,.7);
+    display:none;
+}
+
+.ventana{
+    width:400px;
+    position:absolute;
+    top:15%;
+    left:50%;
+    margin-left:-200px;
+}
+
+.ventana span{
+    color:#fff;
+    background-color:#000;
+    padding:.2em .5em .3em .5em;
+    font-family:Arial;
+    font-weight:bold;
+    border:2px solid #fff;
+    border-radius:50%;
+    position:absolute;
+    top:-15px;
+    right:-20px;
+    cursor:pointer;
+}

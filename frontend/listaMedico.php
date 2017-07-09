@@ -30,6 +30,9 @@ $listaMedicos = MedicoController::listarMedicos();
                                     <th>Fecha de Comtratacion</th>
                                     <th>Especialidad</th>
                                     <th>Valor Consulta</th>
+                                    <?php if($_SESSION['perfil'] === 'Administrador') { ?>
+                                    <th>Eliminar</th>
+                                    <?php } ?>
                                 </tr>
                             </thead>
                             <tbody>
@@ -37,17 +40,21 @@ $listaMedicos = MedicoController::listarMedicos();
                                 foreach ($listaMedicos as $fila) {
                                     ?>
                                 <script>var rut = "" + formatear(<?= $fila['id'] ?>);</script>
-                                <?php ?>
                                 <tr>
                                     <td><script>document.write(rut)</script></td>
                                     <td><?= $fila['nombre'] ?></td>
                                     <td><?= $fila['fechaContrato'] ?></td>
                                     <td><?= $fila['especialidad'] ?></td>
-                                    <td><?= $fila['valor'] ?></td>
+                                    <td><?= $fila['valor'];?></td>
+                                    <?php
+                                    if($_SESSION['perfil'] === 'Administrador') {
+                                        ?>
+                                    <td> <a href="" class="eliminar">[Eliminar]</a></td>
+                                        <?php
+                                    }
+                                    }
+                                    ?>
                                 </tr>
-                                <?php
-                            }
-                            ?>
                             </tbody>
                         </table>
                     </div><br>

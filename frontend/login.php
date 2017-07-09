@@ -22,21 +22,14 @@ if(isset($_SESSION['id'])) {
             
             <?php include_once __DIR__.'/header.php'; ?>
             
-            <div id="contenido">
-                
-                <div id="migas">
-                    <ul>
-                        <li><a href="index.php">Inicio</a></li>
-                        <li>Iniciar sesión</li>
-                    </ul>
-                </div>
+            <div id="vista">
                 
                 <form id="formLogin" action="../backend/procesar-login.php" method="POST">
                     <fieldset>
                         <legend>Iniciar sesión</legend>
                         <div class="campoFormulario">
                             <label for="rut">RUT:</label>
-                            <input type="text" name="rut" placeholder="RUT" required >
+                            <input type="text" name="rut" placeholder="Sin puntos ni dígito verificador" required >
                         </div>
                         <div class="campoFormulario">
                             <label for="clave">Clave:</label>

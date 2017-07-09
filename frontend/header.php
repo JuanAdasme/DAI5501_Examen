@@ -11,7 +11,7 @@
                 <h1>Hospital Comunal de Tetengo</h1>
             </div>
             <div id="logo-empresa">
-                <img alt="logo empresa" src="img/dr.png"/>
+                <img alt="logo empresa" src="img/dr.svg"/>
             </div>
         </header>
     </body>

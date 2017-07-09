@@ -77,6 +77,13 @@ if ($_SESSION['perfil'] != 'Administrador' || !isset($_SESSION['id'])) {
             <div id="listUsuario" style="display:none" >
                 <?php include_once __DIR__ . '/listaUsuario.php'; ?>
             </div>
+            
+            <div class="modal" style="display:none">
+                <div class="ventana">
+                    <?php include_once __DIR__.'/eliminar.php'; ?>
+                    <span class="cerrar">x</span>
+                </div>
+            </div>
 
 
             <div id="preFooter"></div>
