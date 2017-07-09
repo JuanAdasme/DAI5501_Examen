@@ -17,61 +17,43 @@ $listaMedicos = MedicoController::listarMedicos();
     </head>
     <body>
         <div id="contenido">
-
-            <!--<header>
-
-                <div id="titulo">
-                    <h1>Hospital Comunal Tetengo</h1>
-                </div>
-                <div id="logo-empresa">
-                    <img alt="logo empresa" src="img/dr.png"  />
-
-                </div>
-            </header>-->
             <div id="vista">
-                <form action="" method="post">
-                    <fieldset>
-                        <legend><strong>MEDICOS</strong></legend>
-                        Filtro<input type="text" class="buscador" placeholder="Ingrese medico a buscar"><br><br>
-                        <div class="tabla">
-                            <table border="3px" class="tablaRegistros">
-                                <thead>
-                                    <tr>
-                                        <th>Rut</th>
-                                        <th>Nombre Completo</th>
-                                        <th>Fecha de Comtratacion</th>
-                                        <th>Especialidad</th>
-                                        <th>Valor Consulta</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
+                <fieldset>
+                    <legend><strong>MEDICOS</strong></legend>
+                    Filtro<input type="text" class="buscador" placeholder="Ingrese medico a buscar"><br><br>
+                    <div class="tabla">
+                        <table border="3px" class="tablaRegistros">
+                            <thead>
+                                <tr>
+                                    <th>Rut</th>
+                                    <th>Nombre Completo</th>
+                                    <th>Fecha de Comtratacion</th>
+                                    <th>Especialidad</th>
+                                    <th>Valor Consulta</th>
+                                </tr>
+                            </thead>
+                            <tbody>
                                 <?php
                                 foreach ($listaMedicos as $fila) {
-                                ?>
-                                    <script>var rut = "" + formatear(<?= $fila['id'] ?>);</script>
-                                        <?php ?>
-                                    <tr>
-                                        <td><script>document.write(rut)</script></td>
-                                        <td><?= $fila['nombre'] ?></td>
-                                        <td><?= $fila['fechaContrato'] ?></td>
-                                        <td><?= $fila['especialidad'] ?></td>
-                                        <td><?= $fila['valor'] ?></td>
-                                    </tr>
+                                    ?>
+                                <script>var rut = "" + formatear(<?= $fila['id'] ?>);</script>
+                                <?php ?>
+                                <tr>
+                                    <td><script>document.write(rut)</script></td>
+                                    <td><?= $fila['nombre'] ?></td>
+                                    <td><?= $fila['fechaContrato'] ?></td>
+                                    <td><?= $fila['especialidad'] ?></td>
+                                    <td><?= $fila['valor'] ?></td>
+                                </tr>
                                 <?php
-                                }
-                                ?>
-                                </tbody>
-                            </table>
-                        </div><br>
-                        
-
-                    </fieldset>
-                </form>
+                            }
+                            ?>
+                            </tbody>
+                        </table>
+                    </div><br>
+                </fieldset>
             </div>
-
-            <!--<footer>
-              <p>Comuna de Tetengo</p>
-            </footer>-->
+            <div id="preFooter"></div>
         </div>
     </body>
 </html>

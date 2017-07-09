@@ -106,10 +106,9 @@
                         <input type="submit" name="btnAgendar" value="Agendar" >
                         <input type="reset" name="btnReset" >
                     </div><br>
-
                 </form>
             </div>
+            <div id="preFooter"></div>
         </div>
-        <div id="preFooter"></div>
     </body>
 </html>

@@ -15,17 +15,7 @@ $users = UsuarioController::listarUsuarios();
     </head>
     <body>
         <div id="contenido">
-
-            <!--<header>
-              <div id="titulo">
-                <h1>Hospital Comunal Tetengo</h1>
-              </div>
-              <div id="logo-empresa">
-                <img alt="logo empresa" src="../dr.png"/>
-              </div>
-            </header>-->
             <div id="vista">
-                <form action="" method="">
                     <fieldset>
                         <legend><strong>USUARIOS</strong></legend>
                         Filtro<input type="text" class="buscador" placeholder="Ingrese usuario a buscar"><br><br>
@@ -59,15 +49,8 @@ $users = UsuarioController::listarUsuarios();
                             </table>
                         </div><br>
                     </fieldset>
-
-
-
-                </form>
             </div>
-
-            <!--<footer>
-              <p>Comuna de Tetengo</p>
-            </footer>-->
+            <div id="preFooter"></div>
         </div>
     </body>
 </html>

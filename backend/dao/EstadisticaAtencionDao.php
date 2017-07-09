@@ -44,12 +44,13 @@ class EstadisticaAtencionDao implements GenericDao {
 
     public function estadisticaPaciente(){
 
-          $query = "SELECT TIMESTAMPDIFF(YEAR,paciente_fecha_nacimiento,CURDATE()) AS edad,PACIENTE_SEXO,
-          count(at.atencion_id)
+          $query = "SELECT TIMESTAMPDIFF(YEAR,paciente_fecha_nacimiento,CURDATE()) AS 'edad', paciente_sexo,
+          count(at.atencion_id) AS 'cantidad'
 
           FROM paciente pac
           JOIN atencion at ON(pac.paciente_rut = at.atencion_paciente_rut)
-          where atencion_estado = 'Realizada' ";
+          WHERE atencion_estado = 'Realizada'
+          GROUP BY edad, paciente_sexo";
 
           $sentencia = $this->conexion->prepare($query);
           $sentencia->execute();
@@ -57,8 +58,9 @@ class EstadisticaAtencionDao implements GenericDao {
 
           foreach ($sentencia as $fila) {
             $estPaciente = array(
-                'sexo'=> $fila[0],
-                'atenciones' => $fila[1]
+                'edad' => $fila[0],
+                'sexo' => $fila[1],
+                'atenciones' => $fila[2]
             );
 
             array_push($lista, $estPaciente);

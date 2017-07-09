@@ -46,10 +46,10 @@ if ($_SESSION['perfil'] != 'Director' || !isset($_SESSION['id'])) {
                             <li><a id="listarAte" href="">Listar</a></li>
                         </ul>
                     </li>
-                    <li><a href="#">Estadisticas</a>
+                    <li><a href="">Estadisticas</a>
                         <ul>
-                            <li><a href="">Atenciones</a></li>
-                            <li><a href="">Pacientes</a></li>
+                            <li><a id="atencionEst" href="">Atenciones</a></li>
+                            <li><a id="pacienteEst" href="">Pacientes</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -66,6 +66,14 @@ if ($_SESSION['perfil'] != 'Director' || !isset($_SESSION['id'])) {
 
             <div id="listAtencion" style="display:none">
                 <?php include_once __DIR__ . '/listaAtencion.php'; ?>
+            </div>
+            
+            <div id="ateEstadistica" style="display:none">
+                <?php include_once __DIR__.'/estadisticaAtenciones.php'; ?>
+            </div>
+            
+            <div id="pacEstadistica" style="display:none">
+                <?php include_once __DIR__.'/estadisticaPaciente.php'; ?>
             </div>
 
             <?php include_once __DIR__ . '/footer.php'; ?>

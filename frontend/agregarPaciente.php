@@ -38,9 +38,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
             <div id="vista">
 
                 <a href="">Volver</a>
-
-
-
+                
                 <form id="formAgendarPaciente" action="#" method="GET">
 
                     <fieldset>
@@ -90,14 +88,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
                         </div><br>
                     </fieldset>
 
-
                     <div id="botonera">
                         <input type="submit" name="btnAgendar" value="Agendar" >
                         <input type="reset" name="btnReset" >
                     </div>
-
+                    
                 </form>
             </div>
+            <div id="preFooter"></div>
         </div>
     </body>
 </html>

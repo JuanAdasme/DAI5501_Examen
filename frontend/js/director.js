@@ -18,7 +18,19 @@ jQuery(document).ready(function() {
        jQuery('#listAtencion').css('display','block');
     });
     
+    jQuery('#atencionEst').click(function(event) {
+       limpiar();
+       event.preventDefault();
+       jQuery('#ateEstadistica').css('display','block');
+    });
+    
+    jQuery('#pacienteEst').click(function(event) {
+       limpiar();
+       event.preventDefault();
+       jQuery('#pacEstadistica').css('display','block');
+    });
+    
     function limpiar() {
-        jQuery('#listMedico,#listPaciente,#listAtencion').css('display','none');
+        jQuery('#listMedico,#listPaciente,#listAtencion,#ateEstadistica,#pacEstadistica').css('display','none');
     }
 });

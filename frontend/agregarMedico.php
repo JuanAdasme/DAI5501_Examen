@@ -35,20 +35,9 @@ if($_SERVER['REQUEST_METHOD'] === 'GET') {
     </head>
     <body>
         <div id="contenido">
-
-            <!--<header>
-              <div id="titulo">
-                <h1>Hospital Comunal Tetengo</h1>
-              </div>
-              <div id="logo-empresa">
-                <img alt="logo empresa" src="dr.png"  />
-      
-              </div>
-            </header>-->
             <div id="vista">
 
                 <a href="">Volver</a>
-
 
                 <form id="formRegistrarMedico" action="#" method="GET">
 
@@ -102,10 +91,7 @@ if($_SERVER['REQUEST_METHOD'] === 'GET') {
 
                 </form>
             </div>
-
-            <!--<footer>
-              <p>Comuna de Tetengo</p>
-            </footer>-->
+            <div id="preFooter"></div>
         </div>
     </body>
 </html>
