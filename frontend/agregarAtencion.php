@@ -130,7 +130,7 @@ else {
                     </fieldset>
 
                     <div id="botonera">
-                        <input type="submit" name="btnAgendar" value="Agendar" >
+                        <input type="submit" name="btnAgendar" value="Agregar" >
                         <input type="reset" name="btnReset" >
                     </div><br>
                 </form>
