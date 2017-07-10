@@ -18,7 +18,7 @@ if(isset($_SESSION['id'])) {
 
     </head>
     <body>
-        <div id="contenedor">
+        <div id="vista">
 
             <?php include_once __DIR__.'/header.php'; ?>
 
