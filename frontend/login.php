@@ -18,11 +18,11 @@ if(isset($_SESSION['id'])) {
 
     </head>
     <body>
-        <div id="vista">
+        <div class="vista">
 
             <?php include_once __DIR__.'/header.php'; ?>
 
-            <div id="vista">
+            <div class="vista">
 
                 <form id="formLogin" action="../backend/procesar-login.php" method="POST">
                     <fieldset style="width: 450px;">

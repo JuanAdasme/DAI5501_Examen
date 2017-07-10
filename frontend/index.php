@@ -11,9 +11,10 @@
 
     </head>
     <body>
-        <div id="vista">
+        <div class="vista">
 
             <?php include_once __DIR__.'/header.php'; ?>
+            <div class="vista">
             <fieldset style="width: 450px;">
              <div id="contenidoIndex" style="align-content: center;">
                <p>Inicie Sesion</p>
@@ -23,7 +24,7 @@
 
                </div>
              </fieldset>
-
+           </div>
             <?php include_once __DIR__.'/footer.php'; ?>
 
         </div>

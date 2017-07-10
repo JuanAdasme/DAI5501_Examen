@@ -4,7 +4,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
 
     if (isset($_GET['rutUsuario']) && isset($_GET['claveUsuario']) && isset($_GET['confirmarClave']) &&
             isset($_GET['perfilUsuario']) && isset($_GET['nombreUsuario']) && isset($_GET['fechaRegistro'])) {
-        
+
         if($_GET['claveUsuario'] != $_GET['confirmarClave']) {
             ?>
             <script type="text/javascript"> alert('Las claves no coinciden');</script>
@@ -20,7 +20,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
     }
 }
 ?>
-            
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -33,7 +33,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
     <body>
         <div id="contenido">
             <div id="vista">
-                
+
                 <a href="">Volver</a>
 
                 <form id="formAgendar" action="#" method="GET">
@@ -50,7 +50,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
                                 <input type="password" name="claveUsuario" required >
                             </div>
                             <div class="campoFormulario">
-                                <label for="confirmarClave">Clave Usuario:</label>
+                                <label for="confirmarClave">Confirmar Clave Usuario:</label>
                                 <input type="password" name="confirmarClave" required >
                             </div>
                             <div class="campoFormulario">
@@ -70,7 +70,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
                             </div>
                             <div class="campoFormulario">
                                 <label for="fechaRegistro">Fecha de Registro:</label>
-                                <input type="date" name="fechaRegistro" value="<?= date('Y-m-d'); ?>" readonly >
+                                <input type="date" name="fechaRegistro" value="<?= date('Y-m-d'); ?>" readonly  style="width: 250px;">
                             </div>
                         </div><br>
 
@@ -80,7 +80,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
                             <input type="reset" name="btnReset" >
                         </div>
                     </fieldset>
-                    
+
                 </form>
             </div>
             <div id="preFooter"></div>
