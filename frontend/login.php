@@ -15,17 +15,17 @@ if(isset($_SESSION['id'])) {
         <link rel="stylesheet" type="text/css" href="css/estilo.css">
         <script src="js/jquery-3.2.1.min.js" ></script>
         <script src="js/jquery.Rut.js"></script>
-        
+
     </head>
     <body>
         <div id="contenedor">
-            
+
             <?php include_once __DIR__.'/header.php'; ?>
-            
+
             <div id="vista">
-                
+
                 <form id="formLogin" action="../backend/procesar-login.php" method="POST">
-                    <fieldset>
+                    <fieldset style="width: 450px;">
                         <legend>Iniciar sesión</legend>
                         <div class="campoFormulario">
                             <label for="rut">RUT:</label>
@@ -35,20 +35,21 @@ if(isset($_SESSION['id'])) {
                             <label for="clave">Clave:</label>
                             <input type="password" name="clave" placeholder="Clave" required >
                         </div>
+                        <div>
+
+                          <input type="submit" name="btnIniciarSesion" value="Iniciar sesión" style="height: 20px; width: 100px; background: #314755;
+                                                                                                        background: -webkit-linear-gradient(to right, #26a0da, #314755);
+                                                                                                            background: linear-gradient(to right, #26a0da, #314755);">
+                           <input type="reset" name="btnReset" >
+
+                           </div>
                     </fieldset>
-                    <div id="botonera">
-                        <div class="btnFormulario">
-                            <input type="submit" name="btnIniciarSesion" value="Iniciar sesión" >
-                        </div>
-                        <div class="btnFormulario">
-                            <input type="reset" name="btnReset" >
-                        </div>
-                    </div>
+
                 </form>
             </div>
-            
+
             <?php include_once __DIR__.'/footer.php'; ?>
-            
+
         </div>
     </body>
 </html>

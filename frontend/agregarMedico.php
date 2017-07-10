@@ -4,12 +4,12 @@
 include_once __DIR__.'/../backend/controller/MedicoController.php';
 
 if($_SERVER['REQUEST_METHOD'] === 'GET') {
-    
-    if(isset($_GET['nombreMedico']) && isset($_GET['apellidoPMedico']) && isset($_GET['apellidoMMedico']) && 
+
+    if(isset($_GET['nombreMedico']) && isset($_GET['apellidoPMedico']) && isset($_GET['apellidoMMedico']) &&
             isset($_GET['rutMedico']) && isset($_GET['especialidad']) && isset($_GET['valorConsulta']) &&
             isset($_GET['fechaContratacion'])) {
-        
-        
+
+
 
         $exito = MedicoController::agregarMedico($_GET['rutMedico'], $_GET['nombreMedico'], $_GET['apellidoPMedico'],
                 $_GET['apellidoMMedico'],$_GET['fechaContratacion'], $_GET['especialidad'], $_GET['valorConsulta']);
@@ -44,7 +44,7 @@ if($_SERVER['REQUEST_METHOD'] === 'GET') {
                     <fieldset>
                         <legend>Datos del Medico</legend>
                         <div class="tabla">
-                            
+
                             <div class="campoFormulario">
                                 <label for="nombreMedico">Nombre:</label>
                                 <input type="text" name="nombreMedico" required >
@@ -85,7 +85,7 @@ if($_SERVER['REQUEST_METHOD'] === 'GET') {
                     </fieldset>
 
                         <div id="botonera">
-                            <input type="submit" name="btnRegistrarMedico" value="Agendar" >
+                            <input type="submit" name="btnRegistrarMedico" value="Agregar" >
                             <input type="reset" name="btnReset" >
                         </div>
 

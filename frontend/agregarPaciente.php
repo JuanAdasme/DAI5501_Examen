@@ -29,7 +29,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
         <title>Agregar Paciente</title>
         <link rel="stylesheet" type="text/css" href="css/estilo.css"  media="all">
         <script type="text/javascript" src="js/jquery-3.2.1.min.js" ></script>
-        <script type="text/javascript" src="js/jquery.Rut.js" ></script> 
+        <script type="text/javascript" src="js/jquery.Rut.js" ></script>
     </head>
     <body>
     <body>
@@ -38,7 +38,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
             <div id="vista">
 
                 <a href="">Volver</a>
-                
+
                 <form id="formAgendarPaciente" action="#" method="GET">
 
                     <fieldset>
@@ -89,10 +89,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
                     </fieldset>
 
                     <div id="botonera">
-                        <input type="submit" name="btnAgendar" value="Agendar" >
+                        <input type="submit" name="btnAgendar" value="Agregar" >
                         <input type="reset" name="btnReset" >
                     </div>
-                    
+
                 </form>
             </div>
             <div id="preFooter"></div>
