@@ -8,16 +8,18 @@ class AtencionController {
     function __construct() {
     }
     
-    public static function agregarAtencion($fecha, $idPaciente, $idMedico) {
+    public static function agregarAtencion($fecha, $hora, $idPaciente, $idMedico, $estado) {
         $atencion = new Atencion();
+
         $atencion->setFecha_hora($fecha);
-        $atencion->setPaciente_rut($idPaciente);
-        $atencion->setMedico_rut($idMedico);
-        $atencion->setEstado("Agendada");
-        
+        $rutPa = substr($idPaciente, 0,($idPaciente.length-3));
+        $rutP = str_replace('.', '',$rutPa);
+        $atencion->setPaciente_rut($rutP);
+        $rutM = substr($idMedico, 0,($idMedico.length-3));
+        $atencion->setMedico_rut($rutM);
+        $atencion->setEstado($estado);
         $conexion = DBConnection::getConexion();
         $atencionDao = new AtencionDao($conexion);
-        
         return $atencionDao->agregarAtencion($atencion);
     }
     

@@ -44,11 +44,12 @@ $atenciones = AtencionController::listarAtenciones();
                                 </thead>
                                 <tbody>
                                     <?php
+                                    $i = 0;
                                     foreach ($atenciones as $atencion) {
                                         /* @var $atencion Atencion */
                                         ?>
                                         <tr>
-                                            <td><?= $atencion['id'] ?></td>
+                                            <td class="reg<?=$i?>" ><?= $atencion['id'] ?></td>
                                             <td><?= $atencion['fechaHora'] ?></td>
                                             <td><?= $atencion['paciente'] ?></td>
                                             <td><?= $atencion['medico'] ?></td>

@@ -14,10 +14,10 @@ if($_SERVER['REQUEST_METHOD'] === 'GET') {
         $exito = MedicoController::agregarMedico($_GET['rutMedico'], $_GET['nombreMedico'], $_GET['apellidoPMedico'],
                 $_GET['apellidoMMedico'],$_GET['fechaContratacion'], $_GET['especialidad'], $_GET['valorConsulta']);
         if(!$exito) {
-            ?><script type="text/javascript" >alert('No Funciona!'); console.log('No FUnciona!')</script><?php
+            ?><script type="text/javascript" >alert('No se pudo agregar el registro');</script><?php
         }
         else {
-            ?><script type="text/javascript" >alert("It's working! It's working!!");</script><?php
+            ?><script type="text/javascript" >alert("Se ha agregado el registro");</script><?php
         }
     }
 }

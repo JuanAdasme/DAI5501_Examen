@@ -1,5 +1,17 @@
 jQuery(document).ready(function() {
     
+    $(".eliminar").click(function(e) {
+        e.preventDefault();
+        return this.id;
+    });
+    
+    $("#btnEliminar").click(function(e) {
+        return true;
+    });
+    
+    $("#btnCancelar").click(function(e) {
+        return false;
+    });
     
      $(".cerrar").click(function() {
          jQuery(".modal").fadeOut(300);

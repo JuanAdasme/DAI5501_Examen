@@ -44,7 +44,6 @@ class AtencionDao implements GenericDao {
         $sent->bindParam(':fecha', $fecha);
         $sent->bindParam(':paciente', $paciente);
         $sent->bindParam(':medico', $medico);
-        
         return $sent->execute();
     }
     

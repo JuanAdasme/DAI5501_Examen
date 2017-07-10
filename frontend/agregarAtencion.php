@@ -1,3 +1,30 @@
+<?php
+
+
+include_once __DIR__.'/../backend/controller/AtencionController.php';
+
+if($_SERVER['REQUEST_METHOD'] === 'GET') {
+    
+    if(isset($_GET['fechaAtencion']) && isset($_GET['horaAtencion']) && isset($_GET['rutPaciente']) && 
+            isset($_GET['medicoTratante']) && isset($_GET['especialidad'])) {
+        
+
+        $exito = AtencionController::agregarAtencion($_GET['fechaAtencion'], $_GET['horaAtencion'], $_GET['rutPaciente'],
+                $_GET['medicoTratante'],$_GET['estado']);
+        if(!$exito) {
+            ?><script type="text/javascript" >alert('No se pudo agregar el registro');</script><?php
+        }
+        else {
+            ?><script type="text/javascript" >alert("Se ha agregado el registro");</script><?php
+        }
+    }
+}
+else {
+     ?><script type="text/javascript" >alert("Método de la solicitud incorrecto");</script><?php
+}
+
+?>
+
 
 <!DOCTYPE html>
 <html>
@@ -8,7 +35,8 @@
         <link rel="stylesheet" type="text/css" href="css/estilo.css"  media="all">
         <script type="text/javascript" src="js/jquery-3.2.1.min.js" ></script>
         <script type="text/javascript" src="js/jquery.Rut.js" ></script>
-        <script type="text/javascript" src="js/agregarPaciente.js" ></script>  
+        <script type="text/javascript" src="js/agregarPaciente.js" ></script>
+        <script type="text/javascript" src="js/secretaria.js" ></script>  
     </head>
     <body>
         <div id="contenido">
@@ -16,7 +44,7 @@
             <div id="vista">
 
                 <a href="">Volver</a>
-                <form action="#" method="post">
+                <form action="#" method="get">
 
                     <fieldset id ='datosPaciente'>
                         <legend>Datos del Paciente</legend>
@@ -68,7 +96,6 @@
                         <div class="campoFormulario">
                             <label for="Especialidad">Especialidad:</label>
                             <select name="especialidad" style="height: 35px; width: 220px;">
-                                <optgroup id="optEspecialidad" label="-- Especialidad --">
                                     <option value="Medicina General">Medicina General</option>
                                     <option value="Fonoaudiologia">Fonoaudiología</option>
                                     <option value="Kinesiologia">Kinesiología</option>
@@ -83,8 +110,8 @@
                         </div>
                         <div class="campoFormulario">
                             <label for="estadoAtencion">Estado de la Atencion:</label>
-                            <select name="especialidad" style="height: 35px; width: 220px;">
-                                <optgroup id="optEspecialidad" label="-- Estado Atencion --">
+                            <select name="estado" style="height: 35px; width: 220px;">
+                                <optgroup id="optEstado" label="-- Estado Atencion --">
                                     <option value="Agendado">Agendado</option>
                                     <option value="Anulada">Anulada</option>
                                     <option value="Perdida">Perdida</option>

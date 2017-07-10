@@ -37,6 +37,7 @@ $listaMedicos = MedicoController::listarMedicos();
                             </thead>
                             <tbody>
                                 <?php
+                                $i = 0;
                                 foreach ($listaMedicos as $fila) {
                                     ?>
                                 <script>var rut = "" + formatear(<?= $fila['id'] ?>);</script>
@@ -49,10 +50,11 @@ $listaMedicos = MedicoController::listarMedicos();
                                     <?php
                                     if($_SESSION['perfil'] === 'Administrador') {
                                         ?>
-                                    <td> <a href="" class="eliminar">[Eliminar]</a></td>
+                                    <td> <a href="" id="<?=$i?>" class="eliminar">[Eliminar]</a></td>
                                         <?php
                                     }
-                                    }
+                                    $i++;
+                                }
                                     ?>
                                 </tr>
                             </tbody>

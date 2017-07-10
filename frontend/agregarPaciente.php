@@ -13,9 +13,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
 
         $exito = PacienteController::agregarPaciente($_GET['rutPaciente'], $_GET['nombrePaciente'], $_GET['apellidoPPaciente'], $_GET['apellidoMPaciente'], $_GET['fechaNacimiento'], $_GET['sexoPaciente'], $_GET['direccionPaciente'], $_GET['telefonoPaciente'], $opt);
         if (!$exito) {
-            ?><script type="text/javascript" >alert('No Funciona!'); console.log('No Funciona!')</script><?php
+            ?><script type="text/javascript" >alert('No se pudo agregar el registro');</script><?php
         } else {
-            ?><script type="text/javascript" >alert("It's working! It's working!!");</script><?php
+            ?><script type="text/javascript" >alert("Se ha agregado el registro");</script><?php
         }
     }
 }

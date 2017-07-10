@@ -1,4 +1,10 @@
+<?php
 
+include_once __DIR__.'/../backend/controller/MedicoController.php';
+include_once __DIR__.'/../backend/controller/PacienteController.php';
+include_once __DIR__.'/../backend/controller/UsuarioController.php';
+
+?>
 <html>
     <head>
         <meta charset="UTF-8"/>
@@ -7,7 +13,6 @@
         <link rel="stylesheet" type="text/css" href="css/estilo.css"  media="all">
         <script src="https://code.jquery.com/jquery-3.2.0.min.js" ></script>
         <script src="js/administrador.js"></script>
-        <script src="js/buscador.js"></script>
     </head>
     <body>
         <div id="vista">

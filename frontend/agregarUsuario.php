@@ -9,13 +9,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
             ?>
             <script type="text/javascript"> alert('Las claves no coinciden');</script>
             <?php
+            return false;
         }
 
         $exito = UsuarioController::agregarUsuario($_GET['rutUsuario'], $_GET['claveUsuario'], $_GET['perfilUsuario'], $_GET['nombreUsuario'], $_GET['fechaRegistro']);
         if (!$exito) {
-            ?><script type="text/javascript" >alert('No Funciona!'); console.log('No Funciona!')</script><?php
+            ?><script type="text/javascript" >alert('No se pudo agregar el usuario'); console.log('No Funciona!')</script><?php
         } else {
-            ?><script type="text/javascript" >alert("It's working! It's working!!");</script><?php
+            ?><script type="text/javascript" >alert("Se ha registrado el usuario");</script><?php
         }
     }
 }

@@ -85,7 +85,6 @@ if ($_SESSION['perfil'] != 'Administrador' || !isset($_SESSION['id'])) {
                 </div>
             </div>
 
-
             <div id="preFooter"></div>
 
             <?php include_once __DIR__ . '/footer.php'; ?>
