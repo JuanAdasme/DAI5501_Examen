@@ -30,8 +30,8 @@ $listaMedicos = MedicoController::listarMedicos();
                                     <th>Fecha de Comtratacion</th>
                                     <th>Especialidad</th>
                                     <th>Valor Consulta</th>
-                                    <?php if($_SESSION['perfil'] === 'Administrador') { ?>
-                                    <th>Eliminar</th>
+                                    <?php if ($_SESSION['perfil'] === 'Administrador') { ?>
+                                        <th>Eliminar</th>
                                     <?php } ?>
                                 </tr>
                             </thead>
@@ -46,17 +46,17 @@ $listaMedicos = MedicoController::listarMedicos();
                                     <td><?= $fila['nombre'] ?></td>
                                     <td><?= $fila['fechaContrato'] ?></td>
                                     <td><?= $fila['especialidad'] ?></td>
-                                    <td><?= $fila['valor'];?></td>
+                                    <td><?= $fila['valor']; ?></td>
                                     <?php
-                                    if($_SESSION['perfil'] === 'Administrador') {
+                                    if ($_SESSION['perfil'] === 'Administrador') {
                                         ?>
-                                    <td> <a href="" id="<?=$i?>" class="eliminar">[Eliminar]</a></td>
+                                        <td> <a href="" id="<?= $i ?>" class="eliminarMedico">[Eliminar]</a></td>
                                         <?php
                                     }
                                     $i++;
                                 }
-                                    ?>
-                                </tr>
+                                ?>
+                            </tr>
                             </tbody>
                         </table>
                     </div><br>

@@ -1,15 +1,42 @@
 jQuery(document).ready(function() {
     
-    $(".eliminar").click(function(e) {
+    var idDelMedico = -1;
+    var idDelPaciente = -1;
+    var idDelUsuario = -1;
+    
+    $(".eliminarMedico").click(function(e) {
         e.preventDefault();
-        return this.id;
+        idDelMedico = this.id;
     });
+    
+    $(".eliminarPaciente").click(function(e) {
+        e.preventDefault();
+        idDelPaciente = this.id;
+    });
+    
+    $(".eliminarUsuario").click(function(e) {
+        e.preventDefault();
+        idDelUsuario = this.id;
+    });
+    
+    $("input[name='btnEliminar'").click(function(e) {
+        
+        $.getJSON("../backend/procesar-eliminar.php",
+        {'id': idDelMedico,'perfil': 'medico'},
+        function(exito) {
+            
+        });
+        $(".modal").fadeOut(300);
+     });
     
     $("#btnEliminar").click(function(e) {
         return true;
     });
     
     $("#btnCancelar").click(function(e) {
+        idDelMedico = -1;
+        idDelPaciente = -1;
+        idDelUsuario = -1;
         return false;
     });
     
@@ -17,11 +44,15 @@ jQuery(document).ready(function() {
          jQuery(".modal").fadeOut(300);
      });
      
+     $("input[name='btnCancelar'").click(function() {
+         jQuery(".modal").fadeOut(300);
+     });
+     
     function modal() {
         jQuery(".modal").fadeIn();
     }
     
-    $(".eliminar").click(function(event) {
+    $(".eliminarMedico").click(function(event) {
         event.preventDefault();
         modal();
     });

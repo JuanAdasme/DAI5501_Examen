@@ -16,46 +16,48 @@ $users = UsuarioController::listarUsuarios();
     <body>
         <div id="contenido">
             <div id="vista">
-                    <fieldset>
-                        <legend><strong>USUARIOS</strong></legend>
-                        Filtro<input type="text" class="buscador" placeholder="Ingrese usuario a buscar"><br><br>
-                        <div class="tabla" >
-                            <table border="3px" class="tablaRegistros">
+                <fieldset>
+                    <legend><strong>USUARIOS</strong></legend>
+                    Filtro<input type="text" class="buscador" placeholder="Ingrese usuario a buscar"><br><br>
+                    <div class="tabla" >
+                        <table border="3px" class="tablaRegistros">
 
-                                <thead>
-                                    <tr>
-                                        <th>Id</th>
-                                        <th>Perfil</th>
-                                        <th>Nombre</th>
-                                        <th>Fecha Registro</th>
-                                        <?php if($_SESSION['perfil'] === 'Administrador') { ?>
+                            <thead>
+                                <tr>
+                                    <th>Id</th>
+                                    <th>Perfil</th>
+                                    <th>Nombre</th>
+                                    <th>Fecha Registro</th>
+                                    <?php if ($_SESSION['perfil'] === 'Administrador') { ?>
                                         <th>Eliminar</th>
-                                        <?php } ?>
-                                    </tr>
-                                </thead>
+                                    <?php } ?>
+                                </tr>
+                            </thead>
 
-                                <tbody>
-                                    <?php
-                                    foreach ($users as $user) {
-                                        ?>
-                                        <tr>
-                                            <td><?= $user['id'] ?></td>
-                                            <td><?= $user['perfil'] ?></td>
-                                            <td><?= $user['nombre'] ?></td>
-                                            <td><?= $user['fechaRegistro'] ?></td>
+                            <tbody>
+                                <?php
+                                $i = 0;
+                                foreach ($users as $user) {
+                                    ?>
+                                    <tr>
+                                        <td><?= $user['id'] ?></td>
+                                        <td><?= $user['perfil'] ?></td>
+                                        <td><?= $user['nombre'] ?></td>
+                                        <td><?= $user['fechaRegistro'] ?></td>
                                         <?php
-                                        if($_SESSION['perfil'] === 'Administrador') {
+                                        if ($_SESSION['perfil'] === 'Administrador') {
                                             ?>
-                                        <td> <a href="" class="eliminar">[Eliminar]</a></td>
+                                            <td> <a href="" id="<?= $i ?>" class="eliminar">[Eliminar]</a></td>
                                             <?php
                                         }
-                                        }
-                                        ?>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div><br>
-                    </fieldset>
+                                        $i++;
+                                    }
+                                    ?>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div><br>
+                </fieldset>
             </div>
             <div id="preFooter"></div>
         </div>

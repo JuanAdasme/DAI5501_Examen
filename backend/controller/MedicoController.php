@@ -46,4 +46,11 @@ class MedicoController {
         
         return $dao->resumenMedicos();
     }
+    
+    public static function eliminarMedico($id) {
+        $conexion = DBConnection::getConexion();
+        $dao = new MedicoDao($conexion);
+        
+        return $dao->eliminarRegistro($id);
+    }
 }
